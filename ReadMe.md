@@ -1,20 +1,51 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# TEMAT: APLIKACJA DO ZARZĄDZANIA BIBLIOTEKĄ
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+# STORY:
+## 1. Logowanie do systemu. Różne role i uzależnione od tego widoki;
+Widok: bibliotekarza/bibliotekarki, wypożyczający, księgowa, kierownik;
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+## 2. Dodawanie nowych książek oraz edycja istniejących w bazie biblioteki;
+Panel wyświetlający informacje o danej książce, historii wypożyczeń;
+Uprawnienia dostępu: bibliotekarz/bibliotekarka, logistyka
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+## 3. Dodawanie i edycja użytkowników do bazy biblioteki.
+Wyszukiwarka po imieniu, nazwisku, numerze karty bibliotecznej oraz panel wyświetlający dane użytkownika wraz z harmonogramem jego wypożyczeń.
+Uprawnienia dostępu: bibliotekarz/bibliotekarka;
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://www.visualstudio.com/en-us/docs/git/create-a-readme). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+## 4. Ustalanie terminu wypożyczania książki przez użytkownika wraz z terminem oddania.
+Możliwość wyszukiwania książek po typie, tytule, autorze. Informacja na temat dostępności książki.
+Uprawnienia: wypożyczający, bibliotekarz/bibliotekarka
+
+## 5. Wyszukiwarka wypożyczonych książek wraz z terminami oddania, naliczonymi kosztami oraz dostępnością wybranych tytułów.
+Widok ogólny, pozwalający wyświetlić wielu użytkowników.
+Uprawnienia: bibliotekarz/bibliotekarka
+
+## 6. Panel harmonogramu pracy bibliotekarza/ bibliotekarki na najbliższy tydzień, miesiąc, rok.
+Widok kalendarza z możliwością edycji w trybie kierownika. Po naciśnięciu na dany dzień widać szczegóły dnia.
+Uprawnienia: kierownik.
+
+## 7. Historia zmian w programie - wszystkie zmiany zapisywane w bazie danych.
+Panel wyświetlania zmian. Wyszukiwarka po dacie, trybie zmiany (dodawanie, edycja) oraz prawach dostępu np. wyszukaj wszystkie nowe książki wprowadzone wczoraj.
+Uprawnienia: kierownik.
+
+## 8. Panel księgowej. Uprawnienia: kierownik (tryb odczytu) i księgowa tryb edycji.
+Wyszukiwarka zakupionych książek po: cenie, dacie dodania oraz wyświetlanie zamówień (wiele książek): cena, ilość książek, opłacone lub nieopłacone.
+
+Aktorzy:
+Książka: tytuł, autor, ISBN, gatunek, wydawnictwo, rok wydania;
+Bibliotekarz/Bibliotekarka: imię, nazwisko, wiek, płeć, kalendarz pracy;
+Wypożyczający: imię, nazwisko, numer identyfikacji, PESEL
+Kierownik: imię, nazwisko, ile lat doświadczenia, ile lat w firmie, kalendarz pracy;
+Księgowa: imię, nazwisko, ile lat doświadczenia, ile lat w firmie;
+
+# PyCharm + Python;
+
+# Instalacja Django;
+
+## Windows
+0) Uruchom PowerShell w trybie administratora.
+1) Sprawdź czy masz zainstalowanego Pythona. Komenda "py --version" powinna zadziałać. Jeśli nie, zainstaluj Pythona.
+2) Spróbuj wpisać "easy_install --version", jeśli nie działa, to prawdopodobnie posiadasz to narzędzie, ale należy je skonfigurować.
+2a) Wejdź do katalogu, w którym masz zainstalowanego Pythona, np. "C:\Python_3.7.0-32bit", dalej "Scripts", powinien tam być plik .exe "easy_install.exe".
+2b) "easy_install.exe" -> PPM -> Właściwośći. Skopiuj "Lokalizacja".
+2c) Dalej patrz : https://youtu.be/qgGIqRFvFFk -> PyCharm + Django tutorial.
