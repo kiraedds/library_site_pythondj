@@ -1,0 +1,18 @@
+otworzyc Projekt_Django w pycharm
+w terminalu w pycharm cd django_biblioteka cd llibrary_app
+python manage.py createsuperuser //stworzyc sobie profil
+python manage.py makemigrations biblioteka
+python manage.py migrate
+python manage.py runserver
+
+
+http://127.0.0.1:8000/admin/
+//logowac sie admin admin lub na dane stworozne creatsuperuser
+http://127.0.0.1:8000/biblioteka/
+
+w admin mozna dodawac ksiazki, autorow itd
+na glownej narazie spis ksiazek i szczegoly po kliknieciu na wybrana
+
+
+models.py modele(tabele bazy danych)
+szablony(html) templates/biblioteka/book
