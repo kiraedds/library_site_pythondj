@@ -1,3 +1,4 @@
+pip install Django==1.8.6 <---
 otworzyc Projekt_Django w pycharm
 w terminalu w pycharm cd django_biblioteka cd llibrary_app
 python manage.py createsuperuser //stworzyc sobie profil
