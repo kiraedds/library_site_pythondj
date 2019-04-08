@@ -42,6 +42,11 @@ Księgowa: imię, nazwisko, ile lat doświadczenia, ile lat w firmie;
 
 # Instalacja Django;
 
+# Ważne;
+
+Podczas instalacji Django należy narzucić wersję 1.8.6, wersje wyższe mogą powodować dziwne błędy;
+Aby tego dokonać: pip install Django==1.8.6
+
 ## Windows
 0) Uruchom PowerShell w trybie administratora.
 1) Sprawdź czy masz zainstalowanego Pythona. Komenda "py --version" powinna zadziałać. Jeśli nie, zainstaluj Pythona.
@@ -49,3 +54,20 @@ Księgowa: imię, nazwisko, ile lat doświadczenia, ile lat w firmie;
 2a) Wejdź do katalogu, w którym masz zainstalowanego Pythona, np. "C:\Python_3.7.0-32bit", dalej "Scripts", powinien tam być plik .exe "easy_install.exe".
 2b) "easy_install.exe" -> PPM -> Właściwośći. Skopiuj "Lokalizacja".
 2c) Dalej patrz : https://youtu.be/qgGIqRFvFFk -> PyCharm + Django tutorial.
+
+# Uruchamianie projektu z repozytorium;
+
+1) Otworzyć Projekt_Django w PyCharm;
+2) W terminalu PyCharm wpisać:
+-> cd django_biblioteka
+-> cd library_app
+-> (opcjonalnie) python manage.py createsuperuser        (tworzenie swojego profilu superusera w bazie danych)
+-> python manage.py makemigrations biblioteka
+-> python manage.py migrate
+-> python manage.py runserver
+-> Aby przerwać działanie serwera wystarczy w terminalu PyCharm wcisnąć "Ctrl+C";
+3) Adres serwera: http://127.0.0.1:8000/admin/   LUB   http://127.0.0.1:8000/biblioteka/
+4) w /admin można dodawać książki, autorów, itd;
+
+# models.py modele (tabele bazy danych)
+# szablony (html) templates/biblioteka/book
