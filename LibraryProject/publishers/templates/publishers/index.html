@@ -1,0 +1,11 @@
+
+{% if all_publishers %}
+    <h3>List of all publishers added into the database</h3>
+    <ul>
+        {% for publisher in all_publishers %}
+        <li><a href="/publishers/{{publisher.id}}/">{{ publisher.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h3>No publishers exist in the database</h3>
+{% endif %}

@@ -1,0 +1,11 @@
+
+{% if all_users %}
+    <h3>List of all users added into the database</h3>
+    <ul>
+        {% for user in all_users %}
+        <li><a href="/users/{{user.id}}/">{{ user.name }} {{ user.surname }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h3>No users exist in the database</h3>
+{% endif %}
