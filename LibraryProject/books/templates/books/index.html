@@ -35,38 +35,49 @@
     .navBar li a:hover{
         background-color: #111;
     }
-            li.dropdown {
-            display: inline-block;
-        }
-        .dropbtn {
-            display: inline-block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #000;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
+    li.dropdown {
+        display: inline-block;
+    }
+    .dropbtn {
+        display: inline-block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #000;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
 
-        .dropdown-content a {
-            color: #515151;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
+    .dropdown-content a {
+        color: #515151;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
 
-        .dropdown-content a:hover {background-color: #515151;}
+    .dropdown-content a:hover {background-color: #515151;}
 
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    .reserved {
+        display: inline-block;
+        border-radius: 4px;
+        background-color: #f4511e;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        padding: 5px;
+        transition: all 0.5s;
+        cursor: pointer;
+    }
     </style>
 </head>
 
@@ -90,11 +101,15 @@
 {% load static %}
 {% if all_books %}
     <h3>List of all books added into the database</h3>
-    <ul>
+    <table>
         {% for book in all_books %}
-        <li><a href="/books/{{book.id}}/">{{ book.title }} - {{ book.author }}</a></li>
+        <tr>
+            <td><a href="/books/{{book.id}}/">{{ book.title }}</a></td>
+            <td>{{ book.author }} </td>
+            <td><button class="reserved" style="vertical-align:middle">Reserve</button></td>
+        </tr>
         {% endfor %}
-    </ul>
+    </table>
 {% else %}
     <center><h1>No books exist in the database</h1></center>
 {% endif %}
