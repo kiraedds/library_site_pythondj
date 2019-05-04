@@ -1,1 +1,7 @@
-{{ book }}
+<div id="navBar">
+    <a href="/">MainPage</a>| <a href="/books">Books</a>| <a href="/authors">Authors</a>| <a href="/publishers">Publishers</a>| <a href="/users">Users</a>
+</div>
+
+<img src="{{ book.cover }}" alt="BOOK COVER" height="200" width="140"></br>
+{{ book }}</br>
+<a href="/authors/{{ book.author.id }}">{{ book.author }}</a>

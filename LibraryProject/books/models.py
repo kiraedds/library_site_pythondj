@@ -28,7 +28,8 @@ class Book(models.Model):
 
     title = models.CharField(max_length=100, help_text="Title of the book")
     author = models.ForeignKey(Author, on_delete=models.SET_NULL, null=True, help_text="Author of the book")
-    ISBN = models.CharField(max_length=17, help_text="ISBN of the book, format: xx-xxxxx-xx-x OR yyy-yy-yyyy-yyy-y")
+    ISBN = models.CharField(max_length=17, blank=True,
+                            help_text="ISBN of the book, format: xx-xxxxx-xx-x OR yyy-yy-yyyy-yyy-y")
     genre = models.CharField(max_length=20, choices=GENRES, blank=True, default='Undefined',
                              help_text="Genre of the book")
     publisher = models.ForeignKey(Publisher, on_delete=models.SET_NULL, null=True, help_text="Publisher of the book")
