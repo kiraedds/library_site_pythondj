@@ -1,5 +1,72 @@
-<div id="navBar">
-    <a href="/">MainPage</a>| <a href="/books">Books</a>| <a href="/authors">Authors</a>| <a href="/publishers">Publishers</a>| <a href="/users">Users</a>
+<style>
+    .navBar ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+    .navBar li {
+        float: left;
+    }
+    .navBar li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    .navBar li a:hover{
+        background-color: #111;
+    }
+            li.dropdown {
+            display: inline-block;
+        }
+        .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #000;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: #515151;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {background-color: #515151;}
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+</style>
+<div class="navBar">
+    <ul>
+        <li><a href="/">Main Page</a></li>
+        <li><a href="/books">Books</a></li>
+        <li><a href="/authors">Authors</a></li>
+        <li><a href="/publishers">Publishers</a></li>
+        <li><a href="/users">Users</a></li>
+        <li class="dropdown" style="float:right">
+            <a class="dropbtn">Login & Register</a>
+            <div class="dropdown-content">
+                <a href="#login">Login</a>
+                <a href="#register">Register</a>
+            </div>
+        </li>
+    </ul>
 </div>
 
 {{ publisher }}
