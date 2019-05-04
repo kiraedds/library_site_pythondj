@@ -108,6 +108,54 @@
     }
 },
 {
+    "model": "books.book",
+    "pk": 10,
+    "fields": {
+        "title": "Czas w piekle",
+        "author": 13,
+        "ISBN": "83-85079-33-5",
+        "genre": "THR",
+        "publisher": 1,
+        "cover": "https://4.allegroimg.com/original/0c917d/a8feb41049599700b7f32ba71074"
+    }
+},
+{
+    "model": "books.book",
+    "pk": 11,
+    "fields": {
+        "title": "Carrie",
+        "author": 14,
+        "ISBN": "978-83-7839-631-4",
+        "genre": "FAN",
+        "publisher": 6,
+        "cover": "https://www.proszynski.pl/grafika/cache/w200/Carrie_okl_f.jpg"
+    }
+},
+{
+    "model": "books.book",
+    "pk": 12,
+    "fields": {
+        "title": "Firestarter (Podpalaczka)",
+        "author": 14,
+        "ISBN": "83-7075-063-X",
+        "genre": "FAN",
+        "publisher": 7,
+        "cover": "https://kingowiec.pl/image/frbzdvnvtdqh/940/626/original/"
+    }
+},
+{
+    "model": "books.book",
+    "pk": 13,
+    "fields": {
+        "title": "Miasteczko Salem",
+        "author": 14,
+        "ISBN": "83-85079-83-1",
+        "genre": "HOR",
+        "publisher": 8,
+        "cover": "http://s.lubimyczytac.pl/upload/books/88000/88979/352x500.jpg"
+    }
+},
+{
     "model": "publishers.publisher",
     "pk": 1,
     "fields": {
@@ -140,6 +188,27 @@
     "pk": 5,
     "fields": {
         "name": "PRIMA"
+    }
+},
+{
+    "model": "publishers.publisher",
+    "pk": 6,
+    "fields": {
+        "name": "Pr\u00f3szy\u0144ski i S-ka"
+    }
+},
+{
+    "model": "publishers.publisher",
+    "pk": 7,
+    "fields": {
+        "name": "Phantom Press International"
+    }
+},
+{
+    "model": "publishers.publisher",
+    "pk": 8,
+    "fields": {
+        "name": "Amber Horror"
     }
 },
 {
@@ -247,6 +316,14 @@
     }
 },
 {
+    "model": "authors.author",
+    "pk": 14,
+    "fields": {
+        "name": "Stephen",
+        "surname": "King"
+    }
+},
+{
     "model": "contenttypes.contenttype",
     "pk": 1,
     "fields": {
@@ -324,6 +401,14 @@
     "fields": {
         "app_label": "sessions",
         "model": "session"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "651c9s5c4mwf14j8xxriisjs7f6w2z7h",
+    "fields": {
+        "session_data": "MGU4MjJhNzJhYjI2MzY0NjIyNGY3Njc5MDhiMTEyZmY1Yjg2YTYxNzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI3NThlNDEyZjMzMWFhODlkNjMwOTk1NTk5N2Q3YWEyMTcxOWUwYjAyIn0=",
+        "expire_date": "2019-05-18T08:52:51.888Z"
     }
 },
 {
@@ -699,7 +784,7 @@
     "pk": 1,
     "fields": {
         "password": "pbkdf2_sha256$150000$7PvlMuVtIHZH$L1/gYpBor0njvqg8+upWwN5EPjtt5eQR05L5HiC7jUw=",
-        "last_login": "2019-05-02T11:25:49.601Z",
+        "last_login": "2019-05-04T08:52:51.795Z",
         "is_superuser": true,
         "username": "admin",
         "first_name": "",
@@ -1072,6 +1157,123 @@
         "content_type": 1,
         "object_id": "9",
         "object_repr": "Konfesjona\u0142 - Jack Higgins",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+        "action_time": "2019-05-04T08:49:16.203Z",
+        "user": 1,
+        "content_type": 1,
+        "object_id": "10",
+        "object_repr": "Czas w piekle - Jack Higgins",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+        "action_time": "2019-05-04T08:49:18.984Z",
+        "user": 1,
+        "content_type": 1,
+        "object_id": "10",
+        "object_repr": "Czas w piekle - Jack Higgins",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+        "action_time": "2019-05-04T08:50:17.313Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "14",
+        "object_repr": "Stephen King",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+        "action_time": "2019-05-04T09:01:44.694Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "6",
+        "object_repr": "Pr\u00f3szy\u0144ski i S-ka",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 33,
+    "fields": {
+        "action_time": "2019-05-04T09:02:13.250Z",
+        "user": 1,
+        "content_type": 1,
+        "object_id": "11",
+        "object_repr": "Carrie - Stephen King",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 34,
+    "fields": {
+        "action_time": "2019-05-04T09:03:51.320Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "7",
+        "object_repr": "Phantom Press International",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 35,
+    "fields": {
+        "action_time": "2019-05-04T09:04:29.921Z",
+        "user": 1,
+        "content_type": 1,
+        "object_id": "12",
+        "object_repr": "Firestarter (Podpalaczka) - Stephen King",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 36,
+    "fields": {
+        "action_time": "2019-05-04T09:05:29.547Z",
+        "user": 1,
+        "content_type": 3,
+        "object_id": "8",
+        "object_repr": "Amber Horror",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 37,
+    "fields": {
+        "action_time": "2019-05-04T09:06:07.726Z",
+        "user": 1,
+        "content_type": 1,
+        "object_id": "13",
+        "object_repr": "Miasteczko Salem - Stephen King",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
