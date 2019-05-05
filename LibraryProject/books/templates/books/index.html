@@ -100,6 +100,7 @@
 
 {% load static %}
 {% if all_books %}
+    <h3><a href="/books/create_book/"><button class="reserved" style="vertical-align:middle">New_Book</button></a></h3>
     <h3>List of all books added into the database</h3>
     <table>
         {% for book in all_books %}

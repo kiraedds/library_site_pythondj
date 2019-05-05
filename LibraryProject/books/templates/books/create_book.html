@@ -1,0 +1,20 @@
+
+{% block content %}
+  <form action="." method="post">
+    {% csrf_token %}
+      {{ form }}
+    <input type="submit" value="Submit">
+  </form>
+  <h3>Add new author if not on list</h3>
+  <form action="." method="post">
+    {% csrf_token %}
+      {{ form_author }}
+    <input type="submit" value="Submit">
+  </form>
+  <h3>Add new publisher if not on list</h3>
+<form action="." method="post">
+    {% csrf_token %}
+    {{ form_publisher }}
+    <input type="submit" value="Submit">
+  </form>
+{% endblock %}
