@@ -4,6 +4,19 @@ from .models import User
 
 # Create your views here.
 
+def search_form(request):
+    return render(request, 'users/search_form.html')
+
+def search(request):
+    error = False
+    if 'q' in request.GET:
+        q = request.GET['q']
+        if not q:
+            error = True
+        else:
+            users = User.objects.filter(username__icontains=q)
+            return render(request, 'users/search_results.html', {'users': users, 'query': q})
+    return render(request, 'users/search_form.html', {'error': error})
 
 def index(request):
     all_users = User.objects.all()
