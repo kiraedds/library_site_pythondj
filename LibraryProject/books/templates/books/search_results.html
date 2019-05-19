@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Book Search</title>
+    <head>
+        <title>Book Search</title>
+        <style>
+
+        </style>
     </head>
     <body>
+    {% load static %}
         <p>You searched for: <strong>{{ query }}</strong></p>
 
         {% if books %}
@@ -16,5 +20,7 @@
         {% else %}
             <p>No books matched your search criteria.</p>
         {% endif %}
+
+        <a href="/"><img src="{% static '/images/home-button2.png' %}" aling="Home" style="width: 15px;"></a>
     </body>
 </html>
