@@ -1,141 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Search</title>
-    <style>
-        *
-{
-  box-sizing: border-box;
-}
-body
-{
-  font-family: Verdana, sans-serif;
-}
-
-.image-sliderfade
-{
-  display: none;
-}
-
-img
-{
-  vertical-align: middle;
-}
-
-/* Slideshow container */
-.container
-{
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-}
-
-/* Caption text */
-.text
-{
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 20px 15px;
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-  width: 40%;
-  background: rgba(0, 0, 0, .7);
-  text-align: left;
-}
-
-/* The dots/bullets/indicators */
-.dot
-{
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: transparent;
-  border-color: #ddd;
-  border-width: 5 px;
-  border-style: solid;
-  border-radius: 50%;
-  display: inline-block;
-  transition: border-color 0.6s ease;
-}
-
-.active
-{
-  border-color: #666;
-}
-
-/* Animation */
-.fade
-{
-  -webkit-animation-name: fade-image;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade-image;
-  animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade-image
-{
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
-@keyframes fade-image
-{
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px)
-{
-  .text {font-size: 11px}
-}
-    </style>
-    <script>
-
-var slideIndex = 0;
-showSlides(); // call showslide method
-
-function showSlides()
-{
-    var i;
-
-    // get the array of divs' with classname image-sliderfade
-    var slides = document.getElementsByClassName("image-sliderfade");
-
-    // get the array of divs' with classname dot
-    var dots = document.getElementsByClassName("dot");
-
-    for (i = 0; i < slides.length; i++) {
-        // initially set the display to
-        // none for every image.
-        slides[i].style.display = "none";
-    }
-
-     // increase by 1, Global variable
-    slideIndex++;
-
-     // check for boundary
-    if (slideIndex > slides.length)
-    {
-        slideIndex = 1;
-    }
-
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.
-                            replace(" active", "");
-    }
-
-    slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].className += " active";
-
-    // Change image every 2 seconds
-    setTimeout(showSlides, 2000);
-}
-
-    </script>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}">
+    <meta charset="UTF-8">
+    <title>Library Project</title>
 </head>
 <body>
+    <img src="{% static 'images/logo.png' %}"><br />
+    <div class="navBar">
+        <ul>
+            <li><a href="/"><img src="{% static '/images/home-button2.png' %}" aling="Home" style="width: 15px;"></a></li>
+            <li class="dropdown" style="">
+                <a class="dropbtn">Practical information</a>
+                <div class="dropdown-content">
+                    <a href="#opening_hours">Opening hours</a>
+                    <a href="#regulamin">Regulamin</a>
+                    <a href="#how_to_use_our_library">How to use</a>
+                    <a href="#faq">FAQ</a>
+                </div>
+            </li>
+            <li class="dropdown" style="">
+                <a class="dropbtn">About us</a>
+                <div class="dropdown-content">
+                    <a href="#history">History</a>
+                    <a href="/books">Library resources</a>
+                    <a href="/publishers">List of publishers</a>
+                </div>
+            </li>
+            <li><a href="#ask">Ask the librarian</a></li>
+            <li><a href="#contact">Contact</a></li>
+
+            <li><a href="/authors">Authors</a></li>
+            <li><a href="/users">Users</a></li>
+            <li class="dropdown" style="float:right">
+                <a class="dropbtn">Login & Register</a>
+                <div class="dropdown-content">
+                    <a href="#login">Login</a>
+                    <a href="#register">Register</a>
+                </div>
+            </li>
+        </ul>
+    </div>
     {% if error %}
         <p style="color: red;">Please submit a search term.</p>
     {% endif %}
@@ -143,38 +49,5 @@ function showSlides()
         <input type="text" name="q">
         <input type="submit" value="Search">
     </form>
-
-    <div class="container">
-
-  <!-- Full-width images with caption text -->
-  <div class="image-sliderfade fade">
-    <img src="img1.jpg" style="width:100%">
-    <div class="text">Image caption 1</div>
-  </div>
-
-  <div class="image-sliderfade fade">
-    <img src="img2.jpg" style="width:100%">
-    <div class="text">Image caption 2</div>
-  </div>
-
-  <div class="image-sliderfade fade">
-    <img src="img3.jpg" style="width:100%">
-    <div class="text">Image caption 3</div>
-  </div>
-
-  <div class="image-sliderfade fade">
-    <img src="img3.jpg" style="width:100%">
-    <div class="text">Image caption 4</div>
-  </div>
-
-</div>
-<br>
-
-<!-- The dots/circles -->
-<div style="text-align:center">
-  <span class="dot"></span>
-  <span class="dot"></span>
-  <span class="dot"></span>
-</div>
 </body>
 </html>

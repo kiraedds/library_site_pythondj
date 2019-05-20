@@ -1,193 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}">
     <meta charset="UTF-8">
     <title>Library Project</title>
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        form {
-            border: 3px solid #00674e;
-        }
-        input[type=text], input[type=password] {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-        }
-        .navBar ul {
-            list-style-type: none;
-            margin: -4px 0 0 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #00674e;
-        }
-        .navBar li {
-            float: left;
-        }
-        .navBar li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 14px 16px 16px;
-            text-decoration: none;
-        }
-        .navBar li a:hover{
-            background-color: #00A17B;
-        }
-
-        .navBar a{
-            background-color: #00674e;
-            width: 100%;
-            display: block;
-        }
-
-        li.dropdown {
-            display: inline-block;
-        }
-        .dropbtn {
-            display: inline-block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #00674e;
-            min-width: 150px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-
-        .dropdown-content a {
-            color: #515151;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-        }
-
-        .dropdown-content a:hover {background-color: #515151;}
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        <!-- Slider styles! -->
-        .container {
-            background:#000;
-            width:500px;
-            margin: 0 auto;
-            padding: 10px 10px 0 10px;
-        }
-
-        .slideshow_wrapper {
-            width:500px;
-            height:280px;
-            overflow: hidden;
-        }
-
-        .slideshow {
-            width:1500px;
-            height:280px;
-            margin: 0 0 0 -1000px;
-            position: relative;
-            -webkit-animation-name: slide_animation;
-            -webkit-animation-duration:10s;
-            -webkit-animation-iteration-count:infinite;
-            -webkit-animation-direction:alternate;
-            -webkit-animation-play-state: running;
-        }
-
-        .slide {
-            width:500px;
-            height: 270px;
-            position:relative;
-            float:left;
-            overflow:hidden;
-        }
-
-        .slideshow img{
-            width:500px; height:270px;
-        }
-
-        @-webkit-keyframes slide_animation {
-            0% {left:0px;}
-            10% {left:500px;}
-            20% {left:500px;}
-            30% {left:500px;}
-            40% {left:500px;}
-            50% {left:500px;}
-            60% {left:500px;}
-            70% {left:1000px;}
-            80% {left:1000px;}
-            90% {left:1000px;}
-            100% {left:1000px;}
-        }
-
-
-        .footer {
-            background-color: #00674e;
-            width: 100%;
-            display: block;
-            color: white;
-            padding: 10px 0 10px 0;
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
-{% load static %}
-<img src="{% static 'images/logo.png' %}"><br />
-<div class="navBar">
-    <ul>
-        <li><a href="/"><img src="{% static '/images/home-button2.png' %}" aling="Home" style="width: 15px;"></a></li>
-        <li class="dropdown" style="">
-            <a class="dropbtn">Practical information</a>
-            <div class="dropdown-content">
-                <a href="#opening_hours">Opening hours</a>
-                <a href="#regulamin">Regulamin</a>
-                <a href="#how_to_use_our_library">How to use</a>
-                <a href="#faq">FAQ</a>
-            </div>
-        </li>
-        <li class="dropdown" style="">
-            <a class="dropbtn">About us</a>
-            <div class="dropdown-content">
-                <a href="#history">History</a>
-                <a href="/books">Library resources</a>
-                <a href="/publishers">List of publishers</a>
-            </div>
-        </li>
-        <li><a href="#ask">Ask the librarian</a></li>
-        <li><a href="#contact">Contact</a></li>
+    <img src="{% static 'images/logo.png' %}"><br />
+    <div class="navBar">
+        <ul>
+            <li><a href="/"><img src="{% static '/images/home-button2.png' %}" aling="Home" style="width: 15px;"></a></li>
+            <li class="dropdown">
+                <a class="dropbtn">Practical information</a>
+                <div class="dropdown-content">
+                    <a href="#opening_hours">Opening hours</a>
+                    <a href="#regulamin">Regulamin</a>
+                    <a href="#how_to_use_our_library">How to use</a>
+                    <a href="#faq">FAQ</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a class="dropbtn">About us</a>
+                <div class="dropdown-content">
+                    <a href="#history">History</a>
+                    <a href="/books">Library resources</a>
+                    <a href="/publishers">List of publishers</a>
+                </div>
+            </li>
+            <li><a href="#ask">Ask the librarian</a></li>
+            <li><a href="#contact">Contact</a></li>
 
-        <li><a href="/authors">Authors</a></li>
-        <li><a href="/users">Users</a></li>
-        <li class="dropdown" style="float:right">
-            <a class="dropbtn">Login & Register</a>
-            <div class="dropdown-content">
-
-                <a href="#login">Login</a>
-                <a href="#register">Register</a>
-            </div>
-        </li>
-    </ul>
-</div>
+            <li><a href="/authors">Authors</a></li>
+            <li><a href="/users">Users</a></li>
+            <li class="dropdown" style="float:right">
+                <a class="dropbtn">Login & Register</a>
+                <div class="dropdown-content">
+                    <a href="#login">Login</a>
+                    <a href="#register">Register</a>
+                </div>
+            </li>
+        </ul>
+    </div>
 
 <!--        <br/><b>Login</b><br />
         <input type='text' placeholder='Enter Username' name='uname' required><br />
@@ -196,58 +50,58 @@
         <button type='submit'>Login</button>
 -->
 
-        <table>
-            <tr>
-                <td style="width: 33%">
-                    <div class="navBar">
-                        <a style="">Search by:</a>
-                        <br />
-                        <ul>
-                            <li style="width: 30%"><a>books</a></li>
-                            <li style="width: 30%"><a>authors</a></li>
-                            <li style="width: 30%"><a>publishers</a></li>
-                        </ul>
-                    </div>
-                    {% if error %}
-                    <p style="color: red;">Please submit a search term.</p>
-                    {% endif %}
-                    <form action="/books/search" method="get">
-                        <table>
-                            <td style="width: 350px"><input type="text" name="q"></td>
-                            <td style="width: 150px"><center><input type="image"
-                                                                    src="{% static '/images/search_button.png' %}"
-                                                                    value="Search" style="width: 25px"></center></td>
-                        </table>
+    <table>
+        <tr>
+            <td style="width: 33%">
+                <div class="navBar">
+                    <a style="">Search by:</a>
+                    <br />
+                    <ul>
+                        <li style="width: 33%"><a>books</a></li>
+                        <li style="width: 33%"><a>authors</a></li>
+                        <li style="width: 34%"><a>publishers</a></li>
+                    </ul>
+                </div>
+                {% if error %}
+                <p style="color: red;">Please submit a search term.</p>
+                {% endif %}
+                <form action="/books/search" method="get">
+                    <table>
+                        <td style="width: 350px"><input type="text" name="q"></td>
+                        <td style="width: 150px"><center><input type="image"
+                                                                src="{% static '/images/search_button.png' %}"
+                                                                value="Search" style="width: 25px"></center></td>
+                    </table>
 
-                    </form>
-                </td>
-                <td style="width: 33%">
-                    <div c  lass="container">
-                        <div class="slideshow_wrapper">
-                            <div class="slideshow">
-                                <div class="slide_one slide">
-                                    <img src="{% static '/images/logo.png' %}">
-                                </div>
-                                <div class="slide_two slide">
-                                    <img src="{% static '/images/search_button.png' %}">
-                                </div>
-                                <div class="slide_three slide">
-                                    <img src="{% static '/images/home-button.png' %}">
-                                </div>
-                                <div class="slide_four slide">
-                                    <img src="{% static '/images/home-button2.png' %}">
-                                </div>
+                </form>
+            </td>
+            <td style="width: 33%">
+                <div class="container">
+                    <div class="slideshow_wrapper">
+                        <div class="slideshow">
+                            <div class="slide_one slide">
+                                <img src="{% static '/images/logo.png' %}">
+                            </div>
+                            <div class="slide_two slide">
+                                <img src="{% static '/images/search_button.png' %}">
+                            </div>
+                            <div class="slide_three slide">
+                                <img src="{% static '/images/home-button.png' %}">
+                            </div>
+                            <div class="slide_four slide">
+                                <img src="{% static '/images/home-button2.png' %}">
                             </div>
                         </div>
                     </div>
-                </td>
-                <td style="width: 33%">
-                    <a>There is going to be a calendar.</a>
-                </td>
-            </tr>
-        </table>
-    </body>
-    <div class="footer">
-        <a>Copyright 2019. Made by: Maciej Bes, Bartlomiej Zieba, Adrian Wisniewski, Dawid Smaluch, Joanna Strug</a>
-    </div>
+                </div>
+            </td>
+            <td style="width: 33%">
+                <a>There is going to be a calendar.</a>
+            </td>
+        </tr>
+    </table>
+</body>
+<div class="footer">
+    <a>Copyright 2019. Made by: Maciej Bes, Bartlomiej Zieba, Adrian Wisniewski, Dawid Smaluch, Joanna Strug</a>
+</div>
 </html>
