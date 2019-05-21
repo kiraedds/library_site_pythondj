@@ -243,13 +243,13 @@ img {
     border-radius:5px;
     background-color: #00674e;
 }
-table {
+.tabCalendar {
     clear:both;
     width:100%;
     border:1px solid @calendar-border;
     border-radius:3px;
     border-collapse:collapse;
-    color:#fff;
+    color: white;
 }
 td {
     height:48px;
@@ -260,16 +260,17 @@ td {
     width:100% / 7;
 }
 td.not-current {
-    color:@calendar-fade-color;;
+    color:black;
 }
 td.normal {
 }
 td.today {
     font-weight:700;
-    color:@calendar-standout;
+    background-color:#004d39;
+    border-radius: 1000px;
     font-size:1.5em;
 }
-th td {
+.thCalendar .tdCalendar {
     border:none;
     color:@calendar-standout;
     text-transform:uppercase;
