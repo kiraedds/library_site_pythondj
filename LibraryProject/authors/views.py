@@ -4,7 +4,6 @@ from .models import Author
 
 # Create your views here.
 
-
 def index(request):
     all_authors = Author.objects.all()
     context = {

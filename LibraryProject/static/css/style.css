@@ -2,7 +2,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 form {
-    border: 3px solid #f1f1f1;
+    border: 3px solid #00674e;
 }
 input[type=text], input[type=password] {
     width: 100%;
@@ -21,12 +21,14 @@ button {
     cursor: pointer;
     width: 100%;
 }
+
+/* Styles of main menu */
 .navBar ul {
     list-style-type: none;
-    margin: 0;
+    margin: -4px 0 0 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #00674e;
 }
 .navBar li {
     float: left;
@@ -35,14 +37,18 @@ button {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 14px 14px 16px 16px;
     text-decoration: none;
 }
 .navBar li a:hover{
-    background-color: #111;
+    background-color: #00A17B;
 }
 
-li .dropdown {
+.navBar a{
+    background-color: #00674e;
+    display: block;
+}
+li.dropdown {
     display: inline-block;
 }
 .dropbtn {
@@ -55,10 +61,10 @@ li .dropdown {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #000;
-    min-width: 160px;
+    background-color: #00674e;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    width: auto;
 }
 
 .dropdown-content a {
@@ -69,8 +75,111 @@ li .dropdown {
     text-align: left;
 }
 
-.dropdown-content a:hover {background-color: #515151;}
+.dropdown-content a:hover {
+    background-color: #515151;
+
+}
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+/*---------------------------------*/
+
+<!-- Slider styles! -->
+.container {
+    background:#000;
+    width:500px;
+    margin: 0 auto;
+    padding: 10px 10px 0 10px;
+}
+
+.slideshow_wrapper {
+    width:500px;
+    height:280px;
+    overflow: hidden;
+}
+
+.slideshow {
+    width:1500px;
+    height:280px;
+    margin: 0 0 0 -1000px;
+    position: relative;
+    -webkit-animation-name: slide_animation;
+    -webkit-animation-duration:10s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-direction:alternate;
+    -webkit-animation-play-state: running;
+}
+
+.slide {
+    width:500px;
+    height: 270px;
+    position:relative;
+    float:left;
+    overflow:hidden;
+}
+
+.slideshow img{
+    width:500px; height:270px;
+}
+
+@-webkit-keyframes slide_animation {
+    0% {left:0px;}
+    10% {left:500px;}
+    20% {left:500px;}
+    30% {left:500px;}
+    40% {left:500px;}
+    50% {left:500px;}
+    60% {left:500px;}
+    70% {left:1000px;}
+    80% {left:1000px;}
+    90% {left:1000px;}
+    100% {left:1000px;}
+}
+
+
+/* Footer style */
+.footer {
+    background-color: #00674e;
+    width: 100%;
+    display: block;
+    color: white;
+    padding: 10px 0 10px 0;
+    text-align: center;
+}
+/*------------------------------------*/
+/* Reserved button in book index */
+.reserved {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 5px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.table_book_index {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table_book_index th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table_book_index tr:hover {
+    background-color:#f5f5f5;
+}
+/*------------------------------------*/
+
+/* Table of search engine results */
+.search-engine-results{
+    width: 50%;
+    background-color: #00674e;
+    margin: 5px 0 0 0;
 }

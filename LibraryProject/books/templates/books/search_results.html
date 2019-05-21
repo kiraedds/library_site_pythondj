@@ -1,26 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Book Search</title>
-        <style>
-
-        </style>
-    </head>
-    <body>
+<head>
     {% load static %}
-        <p>You searched for: <strong>{{ query }}</strong></p>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}">
+    <meta charset="UTF-8">
+    <title>Library Project</title>
+</head>
+<body>
+    <img src="{% static 'images/logo.png' %}"><br />
+    <div class="navBar">
+        <ul>
+            <li><a href="/"><img src="{% static '/images/home-button2.png' %}" aling="Home" style="width: 15px;"></a></li>
+            <li class="dropdown" style="">
+                <a class="dropbtn">Practical information</a>
+                <div class="dropdown-content">
+                    <a href="#opening_hours">Opening hours</a>
+                    <a href="#regulamin">Regulamin</a>
+                    <a href="#how_to_use_our_library">How to use</a>
+                    <a href="#faq">FAQ</a>
+                </div>
+            </li>
+            <li class="dropdown" style="">
+                <a class="dropbtn">About us</a>
+                <div class="dropdown-content">
+                    <a href="#history">History</a>
+                    <a href="/books">Library resources</a>
+                    <a href="/publishers">List of publishers</a>
+                </div>
+            </li>
+            <li><a href="#ask">Ask the librarian</a></li>
+            <li><a href="#contact">Contact</a></li>
 
-        {% if books %}
+            <li><a href="/authors">Authors</a></li>
+            <li><a href="/users">Users</a></li>
+            <li class="dropdown" style="float:right">
+                <a class="dropbtn">Login & Register</a>
+                <div class="dropdown-content">
+                    <a href="#login">Login</a>
+                    <a href="#register">Register</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <table class="search-engine-results">
+        <td>
+            <p>You searched for: <strong>{{ query }}</strong></p>
+        </td>
+        <td>
+            {% if books %}
             <p>Found {{ books|length }} book{{ books|pluralize }}.</p>
-            <ul>
-                {% for book in books %}
-                <li>{{ book.title }}</li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>No books matched your search criteria.</p>
-        {% endif %}
-
-        <a href="/"><img src="{% static '/images/home-button2.png' %}" aling="Home" style="width: 15px;"></a>
-    </body>
+            {% else %}
+                <p>No books matched your search criteria.</p>
+            {% endif %}
+        </td>
+    </table>
+    {% if books %}
+    <ul>
+        {% for book in books %}
+        <li>{{ book.title }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <a href="/"><img src="{% static '/images/home-button2.png' %}" aling="Home" style="width: 15px;"></a>
+</body>
 </html>
