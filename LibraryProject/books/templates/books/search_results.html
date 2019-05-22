@@ -57,9 +57,21 @@
     </table>
     {% if books %}
     <ul>
+
         {% for book in books %}
-        <li>{{ book.title }}</li>
+        <table>
+            <td style="width: 250px">
+                <a href="/books/{{book.id}}/">{{ book.title }}</a>
+            </td>
+            <td style="width: 250px">
+                {{ book.author }}
+            </td>
+            <td style="width: 250px">
+                {{ book.publisher }}
+            </td>
+        </table>
         {% endfor %}
+
     </ul>
     {% endif %}
     <a href="/"><img src="{% static '/images/home-button2.png' %}" aling="Home" style="width: 15px;"></a>
