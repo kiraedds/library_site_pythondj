@@ -310,3 +310,34 @@ td.today {
     }
 }
 /*-----------------------------------*/
+
+/* Main table of main page */
+#mainTable {
+}
+
+#mainTable td {
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+#searchEngine {
+    width: 33%;
+    height: 30%;
+}
+
+#calendarPlace {
+
+}
+
+#sliderPlace {
+    width:33%
+    height:70%
+}
+
+#youTubePlace {
+
+}
+
+# NewsPlace {
+
+}
