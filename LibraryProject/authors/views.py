@@ -26,13 +26,11 @@ def details(request, author_id):
 def create_author(request):
     form_author = AuthorForm()
     context = {'form_author': form_author}
-    if request.method=='POST':
-        form_author=AuthorForm(request.POST)
+    if request.method == 'POST':
+        form_author = AuthorForm(request.POST)
 
     if form_author.is_valid():
-        name = request.POST.get('name',)
-        surname = request.POST.get('surname')
-        author_object = Author(name=name, surname=surname)
-        author_object.save()
+        name = form_author.cleaned_data['name']
+        surname = form_author.cleaned_data['surname']
 
     return render(request, 'authors/create_author.html', context)

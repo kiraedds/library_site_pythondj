@@ -29,6 +29,7 @@ button {
     padding: 0;
     overflow: hidden;
     background-color: #00674e;
+    border-radius: 0 15px 15px 15px;
 }
 .navBar li {
     float: left;
@@ -114,61 +115,6 @@ li.dropdown {
     border-radius: 5px;
 }
 /*---------------------------------*/
-
-
-/* Slider styles! */
-.container {
-    background:#000;
-    width:500px;
-    margin: 0 auto;
-    padding: 10px 10px 0 10px;
-}
-
-.slideshow_wrapper {
-    width:500px;
-    height:280px;
-    overflow: hidden;
-}
-
-.slideshow {
-    width:1500px;
-    height:280px;
-    margin: 0 0 0 -1000px;
-    position: relative;
-    -webkit-animation-name: slide_animation;
-    -webkit-animation-duration:10s;
-    -webkit-animation-iteration-count:infinite;
-    -webkit-animation-direction:alternate;
-    -webkit-animation-play-state: running;
-}
-
-.slide {
-    width:500px;
-    height: 270px;
-    position:relative;
-    float:left;
-    overflow:hidden;
-}
-
-.slideshow img{
-    width:500px; height:270px;
-}
-
-@-webkit-keyframes slide_animation {
-    0% {left:0px;}
-    10% {left:500px;}
-    20% {left:500px;}
-    30% {left:500px;}
-    40% {left:500px;}
-    50% {left:500px;}
-    60% {left:500px;}
-    70% {left:1000px;}
-    80% {left:1000px;}
-    90% {left:1000px;}
-    100% {left:1000px;}
-}
-
-
 /* Footer style */
 .footer {
     background-color: #00674e;
@@ -177,6 +123,7 @@ li.dropdown {
     color: white;
     padding: 10px 0 10px 0;
     text-align: center;
+    border-radius: 15px;
 }
 /*------------------------------------*/
 /* Reserved button in book index */
@@ -236,11 +183,11 @@ img {
     }
 }
 .calendar-wrapper {
-    width:360px;
+    width:370px;
     margin:3em auto;
     padding:2em;
     border:1px solid @calendar-border;
-    border-radius:5px;
+    border-radius:15px;
     background-color: #00674e;
 }
 .tabCalendar {
@@ -251,13 +198,13 @@ img {
     border-collapse:collapse;
     color: white;
 }
-td {
-    height:48px;
+.calendarTd {
+    height:42px;
     text-align:center;
     vertical-align:middle;
     border-right:1px solid @calendar-border;
     border-top:1px solid @calendar-border;
-    width:100% / 7;
+    width: 100% / 7;
 }
 td.not-current {
     color:black;
@@ -310,34 +257,77 @@ td.today {
     }
 }
 /*-----------------------------------*/
+/* ----------------------------- */
 
-/* Main table of main page */
-#mainTable {
+.mainPage {
+    background-color: #00674e;
+    border-radius: 15px;
 }
 
-#mainTable td {
-    background-color: #fff;
+.searchEngineBar{
+    background-color: #00674e;
+}
+.searchEngineBar a{
+    border: 1px solid white;
     border-radius: 5px;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+    width: 25%;
+}
+.searchEngineBar a:hover{
+    background-color: #004d39;
 }
 
-#searchEngine {
-    width: 33%;
-    height: 30%;
+/* Slider styles! */
+.container {
+    width: 500px;
+    margin: 0 auto;
+    padding: 10px 10px 0 10px;
 }
 
-#calendarPlace {
-
+.slideshow_wrapper {
+    width:500px;
+    height:200px;
+    overflow: hidden;
 }
 
-#sliderPlace {
-    width:33%
-    height:70%
+.slideshow {
+    width:1500px;
+    height:180px;
+    margin: 0 0 0 -1000px;
+    position: relative;
+    -webkit-animation-name: slide_animation;
+    -webkit-animation-duration:10s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-direction:alternate;
+    -webkit-animation-play-state: running;
 }
 
-#youTubePlace {
-
+.slide {
+    width:500px;
+    height: 180px;
+    position:relative;
+    float:left;
+    overflow:hidden;
 }
 
-# NewsPlace {
+.slideshow img{
+    width:500px; height:270px;
+}
 
+@-webkit-keyframes slide_animation {
+    0% {left:0px;}
+    10% {left:500px;}
+    20% {left:500px;}
+    30% {left:500px;}
+    40% {left:500px;}
+    50% {left:500px;}
+    60% {left:500px;}
+    70% {left:1000px;}
+    80% {left:1000px;}
+    90% {left:1000px;}
+    100% {left:1000px;}
 }
