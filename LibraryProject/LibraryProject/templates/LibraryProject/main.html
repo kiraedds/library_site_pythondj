@@ -159,6 +159,7 @@
     function getId(id) {
         return document.getElementById(id);
     }
+
     </script>
     <script>
         function openLoginPanel() {
@@ -168,122 +169,125 @@
         function openRegisterPanel() {
             <p>Hello in Register</p>
         }
+
     </script>
 </head>
 <body>
-    <img src="{% static 'images/logo.png' %}"><br />
-    <div class="navBar">
-        <ul>
-            <li><a href="/"><img src="{% static '/images/home-button2.png' %}" aling="Home" style="width: 15px;"></a></li>
-            <li class="dropdown">
-                <a class="dropbtn">Practical information</a>
-                <div class="dropdown-content">
-                    <a href="#opening_hours">Opening hours</a>
-                    <a href="#regulamin">Regulamin</a>
-                    <a href="#how_to_use_our_library">How to use</a>
-                    <a href="#faq">FAQ</a>
-                </div>
-            </li>
-            <li class="dropdown">
-                <a class="dropbtn">About us</a>
-                <div class="dropdown-content">
-                    <a href="#history">History</a>
-                    <a href="/books">Library resources</a>
-                    <a href="/publishers">List of publishers</a>
-                </div>
-            </li>
-            <li><a href="#ask">Ask the librarian</a></li>
-            <li><a href="#contact">Contact</a></li>
+<img src="{% static 'images/logo.png' %}"><br/>
+<div class="navBar">
+    <ul>
+        <li><a href="/"><img src="{% static '/images/home-button2.png' %}" aling="Home" style="width: 15px;"></a></li>
+        <li class="dropdown">
+            <a class="dropbtn">Practical information</a>
+            <div class="dropdown-content">
+                <a href="#opening_hours">Opening hours</a>
+                <a href="#regulamin">Regulamin</a>
+                <a href="#how_to_use_our_library">How to use</a>
+                <a href="#faq">FAQ</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a class="dropbtn">About us</a>
+            <div class="dropdown-content">
+                <a href="#history">History</a>
+                <a href="/books">Library resources</a>
+                <a href="/publishers">List of publishers</a>
+            </div>
+        </li>
+        <li><a href="#ask">Ask the librarian</a></li>
+        <li><a href="#contact">Contact</a></li>
 
-            <li><a href="/authors">Authors</a></li>
-            <li><a href="/users">Users</a></li>
-            <li class="dropdown" style="float:right">
-                {% if user.is_authenticated %}
-                <a class="dropbtn">Welcome, {{ user.username }}!</a>
-                <div class="dropdown-content">
-                    <a href="#profile">My Profile</a>
-                    <a href="{% url 'logout' %}">Logout</a>
-                </div>
-                {% else %}
-                <a class="dropbtn">Login & Register</a>
-                <div class="dropdown-content">
-                    <a href="/accounts/login" onclick="window.open(this.href, 'targetWindow',
+        <li><a href="/authors">Authors</a></li>
+        <li><a href="/users">Users</a></li>
+        <li class="dropdown" style="float:right">
+            {% if user.is_authenticated %}
+            <a class="dropbtn">Welcome, {{ user.username }}!</a>
+            <div class="dropdown-content">
+                <a href="#profile">My Profile</a>
+                <a href="{% url 'logout' %}">Logout</a>
+            </div>
+            {% else %}
+            <a class="dropbtn">Login & Register</a>
+            <div class="dropdown-content">
+                <a href="/accounts/login" onclick="window.open(this.href, 'targetWindow',
                                             'width=400, height=400'); return false;">Login</a>
-                    <a href="/register" onclick="window.open(this.href, 'targetWindow',
+                <a href="/register" onclick="window.open(this.href, 'targetWindow',
                                             'width=400, height=400'); return false;">Register</button></a>
-                </div>
-                {% endif %}
-            </li>
-        </ul>
-    </div>
+            </div>
+            {% endif %}
+        </li>
+    </ul>
+</div>
 
 
-    <table style="width: 100%">
-        <tr>
-            <td class="mainPage">
-                <div class="searchEngineBar">
-                    <a href="#" onclick="books()">books</a>
-                    <a href="#" onclick="authors()">authors</a>
-                    <a href="#" onclick="publishers()">publishers</a>
-                </div>
-                {% if error %}
-                <a>Please, submit a search term.</a>
-                {% endif %}
-                <form action="/books/search" method="get">
-                    <table style="height:125px;">
-                        <td style="width: 400px">
-                            <input type="text" placeholder="Search your books here..." name="q">
-                        </td>
-                        <td style="width: 100px"><center><input type="image"
-                                                                src="{% static '/images/searchButton.png' %}"
-                                                                value="Search" style="width: 35px;"></center></td>
-                    </table>
-                </form>
-            </td>
-            <td class="mainPage">
-                <div class="container">
-                    <div class="slideshow_wrapper">
-                        <div class="slideshow">
-                            <div class="slide_one slide">
-                                <img src="{% static '/images/lib1.jpg' %}">
-                            </div>
-                            <div class="slide_two slide">
-                                <img src="{% static '/images/lib2.jpg' %}">
-                            </div>
-                            <div class="slide_three slide">
-                                <img src="{% static '/images/lib3.jpg' %}">
-                            </div>
+<table style="width: 100%">
+    <tr>
+        <td class="mainPage">
+            <div class="searchEngineBar">
+                <a href="#" onclick="books()">books</a>
+                <a href="#" onclick="authors()">authors</a>
+                <a href="#" onclick="publishers()">publishers</a>
+            </div>
+            {% if error %}
+            <a>Please, submit a search term.</a>
+            {% endif %}
+            <form action="/books/search" method="get">
+                <table style="height:125px;">
+                    <td style="width: 400px">
+                        <input type="text" placeholder="Search your books here..." name="q">
+                    </td>
+                    <td style="width: 100px">
+                        <center><input type="image"
+                                       src="{% static '/images/searchButton.png' %}"
+                                       value="Search" style="width: 35px;"></center>
+                    </td>
+                </table>
+            </form>
+        </td>
+        <td class="mainPage">
+            <div class="container">
+                <div class="slideshow_wrapper">
+                    <div class="slideshow">
+                        <div class="slide_one slide">
+                            <img src="{% static '/images/lib1.jpg' %}">
+                        </div>
+                        <div class="slide_two slide">
+                            <img src="{% static '/images/lib2.jpg' %}">
+                        </div>
+                        <div class="slide_three slide">
+                            <img src="{% static '/images/lib3.jpg' %}">
                         </div>
                     </div>
                 </div>
-            </td>
-            <td class="mainPage" id="calendarTd" rowspan="2">
-                <div class="cal">
-                    <div class="calendar-wrapper">
-                        <input type="image" src="{% static '/images/previousButton.png' %}" id="btnPrev" width="25px">
-                        <input type="image" src="{% static '/images/nextButton.png' %}" id="btnNext" width="25px">
-                        <div id="divCal"></div>
-                    </div>
+            </div>
+        </td>
+        <td class="mainPage" id="calendarTd" rowspan="2">
+            <div class="cal">
+                <div class="calendar-wrapper">
+                    <input type="image" src="{% static '/images/previousButton.png' %}" id="btnPrev" width="25px">
+                    <input type="image" src="{% static '/images/nextButton.png' %}" id="btnNext" width="25px">
+                    <div id="divCal"></div>
                 </div>
-            </td>
-        </tr>
-        <tr>
-            <td class="mainPage">
-                <iframe width="470px" height="275px"
-                src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                </iframe>
-            </td>
-            <td class="mainPage">
-                <center>Newsy</center>
-                <ul>
-                    <li>Pierwszy news</li>
-                    <li>Drugi news</li>
-                    <li>Trzeci news</li>
-                    <li>Czwarty news</li>
-                </ul>
-            </td>
-        </tr>
-    </table>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="mainPage">
+            <iframe width="470px" height="275px"
+                    src="https://www.youtube.com/embed/sHwvUFjaNdU">
+            </iframe>
+        </td>
+        <td class="mainPage">
+            <center>Newsy</center>
+            <ul>
+                <li>Pierwszy news</li>
+                <li>Drugi news</li>
+                <li>Trzeci news</li>
+                <li>Czwarty news</li>
+            </ul>
+        </td>
+    </tr>
+</table>
 </body>
 <div class="footer">
     <a>Copyright 2019. Made by: Maciej Bes, Bartlomiej Zieba, Adrian Wisniewski, Dawid Smaluch, Joanna Strug</a>
