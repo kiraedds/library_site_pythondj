@@ -198,13 +198,21 @@
             <li><a href="/authors">Authors</a></li>
             <li><a href="/users">Users</a></li>
             <li class="dropdown" style="float:right">
+                {% if user.is_authenticated %}
+                <a class="dropbtn">Welcome, {{ user.username }}!</a>
+                <div class="dropdown-content">
+                    <a href="#profile">My Profile</a>
+                    <a href="{% url 'logout' %}">Logout</a>
+                </div>
+                {% else %}
                 <a class="dropbtn">Login & Register</a>
                 <div class="dropdown-content">
-                    <a href="/login" onclick="window.open(this.href, 'targetWindow',
+                    <a href="/accounts/login" onclick="window.open(this.href, 'targetWindow',
                                             'width=400, height=400'); return false;">Login</a>
                     <a href="/register" onclick="window.open(this.href, 'targetWindow',
                                             'width=400, height=400'); return false;">Register</button></a>
                 </div>
+                {% endif %}
             </li>
         </ul>
     </div>
