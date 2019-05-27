@@ -39,19 +39,14 @@ def details(request, book_id):
 from .models import Book
 from .forms import BookForm
 from authors.models import Author
-from authors.forms import AuthorForm
 from publishers.models import Publisher
-from publishers.forms import PublisherForm
+
 def create_book(request):
     form = BookForm()
-    form_author = AuthorForm()
-    form_publisher = PublisherForm()
-    context = {'form': form, 'form_author': form_author, 'form_publisher': form_publisher}
+    context = {'form': form}
 
     if request.method=='POST':
         form=BookForm(request.POST)
-        form_author=AuthorForm(request.POST)
-        form_publisher=PublisherForm(request.POST)
 
 
         if form.is_valid():
@@ -69,16 +64,4 @@ def create_book(request):
                 'all_books': all_books,
             }
             return render(request, 'books/index.html', context)
-
-        if form_author.is_valid():
-            name=request.POST.get('name',)
-            surname=request.POST.get('surname')
-            author_object=Author(name=name,surname=surname)
-            author_object.save()
-
-        if form_publisher.is_valid():
-            name = request.POST.get('name', )
-            publisher_object = Publisher(name=name)
-            publisher_object .save()
-
     return render(request, 'books/create_book.html',context)

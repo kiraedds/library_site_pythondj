@@ -4,7 +4,6 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}">
     <meta charset="UTF-8">
-    <title>Library Project</title>
     <script>
     var Cal = function(divId) {
 
@@ -160,79 +159,33 @@
         return document.getElementById(id);
     }
     </script>
-    <script>
-        function openLoginPanel() {
-            <p>Hello in Login</p>
-        }
-
-        function openRegisterPanel() {
-            <p>Hello in Register</p>
-        }
-    </script>
 </head>
 <body>
-    <img src="{% static 'images/logo.png' %}"><br />
-    <div class="navBar">
-        <ul>
-            <li><a href="/"><img src="{% static '/images/home-button2.png' %}" aling="Home" style="width: 15px;"></a></li>
-            <li class="dropdown">
-                <a class="dropbtn">Practical information</a>
-                <div class="dropdown-content">
-                    <a href="#opening_hours">Opening hours</a>
-                    <a href="#regulamin">Regulamin</a>
-                    <a href="#how_to_use_our_library">How to use</a>
-                    <a href="#faq">FAQ</a>
-                </div>
-            </li>
-            <li class="dropdown">
-                <a class="dropbtn">About us</a>
-                <div class="dropdown-content">
-                    <a href="#history">History</a>
-                    <a href="/books">Library resources</a>
-                    <a href="/publishers">List of publishers</a>
-                </div>
-            </li>
-            <li><a href="#ask">Ask the librarian</a></li>
-            <li><a href="#contact">Contact</a></li>
-
-            <li><a href="/authors">Authors</a></li>
-            <li><a href="/users">Users</a></li>
-            <li class="dropdown" style="float:right">
-                <a class="dropbtn">Login & Register</a>
-                <div class="dropdown-content">
-                    <a href="/login" onclick="window.open(this.href, 'targetWindow',
-                                            'width=400, height=400'); return false;">Login</a>
-                    <a href="/register" onclick="window.open(this.href, 'targetWindow',
-                                            'width=400, height=400'); return false;">Register</button></a>
-                </div>
-            </li>
-        </ul>
-    </div>
-
-
-    <table style="width: 100%">
+    <table id="mainTable">
         <tr>
-            <td class="mainPage">
-                <div class="searchEngineBar">
-                    <a href="#" onclick="books()">books</a>
-                    <a href="#" onclick="authors()">authors</a>
-                    <a href="#" onclick="publishers()">publishers</a>
+            <td id="searchEngine">
+                <div class="navBar2">
+                    <a style="color: white;">Search by:</a>
+                    <br />
+                    <ul>
+                        <li style="width: 33%"><a>books</a></li>
+                        <li style="width: 33%"><a>authors</a></li>
+                        <li style="width: 34%"><a>publishers</a></li>
+                    </ul>
                 </div>
                 {% if error %}
-                <a>Please, submit a search term.</a>
+                <p style="color: red;">Please submit a search term.</p>
                 {% endif %}
                 <form action="/books/search" method="get">
-                    <table style="height:125px;">
-                        <td style="width: 400px">
-                            <input type="text" placeholder="Search your books here..." name="q">
-                        </td>
-                        <td style="width: 100px"><center><input type="image"
+                    <table>
+                        <td style="width: 350px"><input type="text" name="q"></td>
+                        <td style="width: 150px"><center><input type="image"
                                                                 src="{% static '/images/searchButton.png' %}"
-                                                                value="Search" style="width: 35px;"></center></td>
+                                                                value="Search" style="width: 25px"></center></td>
                     </table>
                 </form>
             </td>
-            <td class="mainPage">
+            <td style="width: 50%;" id="sliderPlace">
                 <div class="container">
                     <div class="slideshow_wrapper">
                         <div class="slideshow">
@@ -249,7 +202,7 @@
                     </div>
                 </div>
             </td>
-            <td class="mainPage" id="calendarTd" rowspan="2">
+            <td rowspan="3" id="calendarPlace">
                 <div class="cal">
                     <div class="calendar-wrapper">
                         <input type="image" src="{% static '/images/previousButton.png' %}" id="btnPrev" width="25px">
@@ -260,51 +213,20 @@
             </td>
         </tr>
         <tr>
-            <td class="mainPage">
-                <iframe width="470px" height="275px"
-                src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                </iframe>
-            </td>
-            <td class="mainPage">
-                <center>Newsy</center>
+
+
+        </tr>
+        <tr>
+            <td id="somethingWillBeThere">Drugi wiersz, pierwsza kolumna</td>
+            <td id="NewsPlace">
+                <a>News</a>
                 <ul>
-                    <li>Pierwszy news</li>
-                    <li>Drugi news</li>
-                    <li>Trzeci news</li>
-                    <li>Czwarty news</li>
+                    <li>First news</li>
+                    <li>Second news</li>
+                    <li>Third news</li>
                 </ul>
             </td>
         </tr>
     </table>
 </body>
-<div class="footer">
-    <a>Copyright 2019. Made by: Maciej Bes, Bartlomiej Zieba, Adrian Wisniewski, Dawid Smaluch, Joanna Strug</a>
-</div>
 </html>
-
-<!--
-    <table>
-        <tr>
-            <td id="calendarTd" rowspan="3">
-                <div class="cal">
-                    <div class="calendar-wrapper">
-                        <input type="image" src="{% static '/images/previousButton.png' %}" id="btnPrev" width="25px">
-                        <input type="image" src="{% static '/images/nextButton.png' %}" id="btnNext" width="25px">
-                        <div id="divCal"></div>
-                    </div>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>Don't know what will be here</td>
-        </tr>
-        <tr>
-            <td id="youTubePlace">
-
-            </td>
-            <td>
-
-            </td>
-        </tr>
-    </table>
--->

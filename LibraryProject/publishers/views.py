@@ -22,3 +22,22 @@ def details(request, publisher_id):
         'publisher': publisher,
     }
     return render(request, 'publishers/details.html', context)
+
+from publishers.models import Publisher
+from publishers.forms import PublisherForm
+
+def create_publisher(request):
+    form_publisher = PublisherForm()
+    context = {'form_publisher': form_publisher}
+
+    if request.method == 'POST':
+        form_publisher = PublisherForm(request.POST)
+
+        if form_publisher.is_valid():
+            name = request.POST.get('name', )
+            publisher_object = Publisher(name = name)
+            publisher_object.save()
+
+    return render(request, 'publishers/create_publisher.html', context)
+
+

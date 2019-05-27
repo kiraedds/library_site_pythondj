@@ -11,3 +11,8 @@ def index( request ):
     }
     return render( request, 'LibraryProject/main.html', context )
 
+def login(request):
+    return render(request, 'LibraryProject/login.html')
+
+def register(request):
+    return render(request, 'LibraryProject/register.html')
