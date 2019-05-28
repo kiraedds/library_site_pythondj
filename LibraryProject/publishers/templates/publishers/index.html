@@ -10,11 +10,16 @@
 
     {% if all_publishers %}
     <h3>List of all publishers added into the database</h3>
-    <ul>
-        {% for publisher in all_publishers %}
-        <li><a href="/publishers/{{publisher.id}}/">{{ publisher.name }}</a></li>
-        {% endfor %}
-    </ul>
+        <table class="table_book_index">
+            {% for publisher in all_publishers %}
+            <tr>
+                <td><a href="/publisher/{{publisher.id}}/">{{ publisher.name }}</a></td>
+                <td><button class="reserved" style="vertical-align:middle; width: 150px"><a href="/publisher/{{publisher.id}}/">
+                    Show information</a></button></td>
+                <td><button class="reserved" style="vertical-align:middle; width: 100px">List of books</button></td>
+            </tr>
+            {% endfor %}
+        </table>
     {% else %}
     <h3>No publishers exist in the database</h3>
     {% endif %}

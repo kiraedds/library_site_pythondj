@@ -10,11 +10,16 @@
 
     {% if all_authors %}
         <h3>List of all authors added into the database</h3>
-        <ul>
+        <table class="table_book_index">
             {% for author in all_authors %}
-            <li><a href="/authors/{{author.id}}/">{{ author.name }} {{ author.surname }}</a></li>
+            <tr>
+                <td><a href="/authors/{{author.id}}/">{{ author.name }} {{ author.surname }}</a></td>
+                <td><button class="reserved" style="vertical-align:middle; width: 150px"><a href="/authors/{{author.id}}/">
+                    Show information</a></button></td>
+                <td><button class="reserved" style="vertical-align:middle; width: 100px">List of books</button></td>
+            </tr>
             {% endfor %}
-        </ul>
+        </table>
     {% else %}
         <h3>No authors exist in the database</h3>
     {% endif %}
