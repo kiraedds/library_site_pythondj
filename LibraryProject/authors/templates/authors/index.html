@@ -1,44 +1,8 @@
-<head>
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}">
-    <meta charset="UTF-8">
-</head>
-<body>
-    <img src="{% static 'images/logo.png' %}"><br />
-    <div class="navBar">
-        <ul>
-            <li><a href="/"><img src="{% static '/images/home-button2.png' %}" aling="Home" style="width: 15px;"></a></li>
-            <li class="dropdown" style="">
-                <a class="dropbtn">Practical information</a>
-                <div class="dropdown-content">
-                    <a href="#opening_hours">Opening hours</a>
-                    <a href="#regulamin">Regulamin</a>
-                    <a href="#how_to_use_our_library">How to use</a>
-                    <a href="#faq">FAQ</a>
-                </div>
-            </li>
-            <li class="dropdown" style="">
-                <a class="dropbtn">About us</a>
-                <div class="dropdown-content">
-                    <a href="#history">History</a>
-                    <a href="/books">Library resources</a>
-                    <a href="/publishers">List of publishers</a>
-                </div>
-            </li>
-            <li><a href="#ask">Ask the librarian</a></li>
-            <li><a href="#contact">Contact</a></li>
+{% extends 'base.html' %}
 
-            <li><a href="/authors">Authors</a></li>
-            <li><a href="/users">Users</a></li>
-            <li class="dropdown" style="float:right">
-                <a class="dropbtn">Login & Register</a>
-                <div class="dropdown-content">
-                    <a href="#login">Login</a>
-                    <a href="#register">Register</a>
-                </div>
-            </li>
-        </ul>
-    </div>
+{% block title %}Authors{% endblock %}
+
+{% block content %}
 
     {% if all_authors %}
         <h3>List of all authors added into the database</h3>
@@ -50,4 +14,5 @@
     {% else %}
         <h3>No authors exist in the database</h3>
     {% endif %}
-</body>
+
+{% endblock %}
