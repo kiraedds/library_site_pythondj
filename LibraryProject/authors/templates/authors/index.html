@@ -4,6 +4,10 @@
 
 {% block content %}
 
+{% if user.is_authenticated and user.username == 'admin' %}
+    <h3><a href="/authors/create_author/"><button class="reserved" style="vertical-align:middle">New Author</button></a></h3>
+{% endif %}
+
     {% if all_authors %}
         <h3>List of all authors added into the database</h3>
         <ul>

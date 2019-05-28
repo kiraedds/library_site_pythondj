@@ -4,6 +4,10 @@
 
 {% block content %}
 
+        {% if user.is_authenticated and user.username == 'admin' %}
+            <h3><a href="/publishers/create_publisher/"><button class="reserved" style="vertical-align:middle">New Publisher</button></a></h3>
+        {% endif %}
+
     {% if all_publishers %}
     <h3>List of all publishers added into the database</h3>
     <ul>

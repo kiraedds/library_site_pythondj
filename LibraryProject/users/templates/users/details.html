@@ -4,7 +4,15 @@
 
 {% block content %}
 
+    {% if user.is_authenticated %}
+
     {{ user_show.username }}</br>
     {{ user_show.email }}
+
+    {% else %}
+
+    <h3>You are not logged in. You can't see users' details.</h3>
+
+    {% endif %}
 
 {% endblock %}

@@ -5,7 +5,11 @@
 {% block content %}
 
     {% if all_books %}
-        <h3><a href="/books/create_book/"><button class="reserved" style="vertical-align:middle">New_Book</button></a></h3>
+
+        {% if user.is_authenticated and user.username == 'admin' %}
+            <h3><a href="/books/create_book/"><button class="reserved" style="vertical-align:middle">New Book</button></a></h3>
+        {% endif %}
+
         <h3>List of all books added into the database</h3>
         <table class="table_book_index">
             {% for book in all_books %}

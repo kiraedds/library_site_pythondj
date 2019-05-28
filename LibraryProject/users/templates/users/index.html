@@ -4,15 +4,23 @@
 
 {% block content %}
 
-{% if all_users %}
-<h3>List of all users added into the database</h3>
-<ul>
-    {% for user in all_users %}
-    <li><a href="/users/{{user.id}}/">{{ user.username }}</a></li>
-    {% endfor %}
-</ul>
+{% if user.is_authenticated %}
+
+    {% if all_users %}
+    <h3>List of all users added into the database</h3>
+    <ul>
+        {% for user in all_users %}
+        <li><a href="/users/{{user.id}}/">{{ user.username }}</a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <h3>No users exist in the database</h3>
+    {% endif %}
+
 {% else %}
-<h3>No users exist in the database</h3>
+
+<h3>You are not logged in. You can't search users.</h3>
+
 {% endif %}
 
 {% endblock %}
