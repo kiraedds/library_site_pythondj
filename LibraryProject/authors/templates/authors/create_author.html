@@ -1,8 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Add new author{% endblock %}
+
+
 {% block content %}
-  <h3>Add new author if not on list</h3>
-  <form action="." method="post">
-    {% csrf_token %}
-      {{ form_author }}
-    <input type="submit" value="Submit">
-  </form>
+
+{% if user.is_authenticated and user.username == 'admin' %}
+
+    <h3>Add new author</h3>
+    <form action="." method="post">
+        {% csrf_token %}
+        {{ form_author }}
+        <input type="submit" value="Submit">
+    </form>
+
+{% else %}
+
+    <h3>You have no rights to be here, user.</h3>
+
+{% endif %}
+
 {% endblock %}

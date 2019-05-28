@@ -1,11 +1,13 @@
 from django.shortcuts import render
 from django.http import Http404
-from .models import User
+from django.contrib.auth.models import User
+
 
 # Create your views here.
 
 def search_form(request):
     return render(request, 'users/search_form.html')
+
 
 def search(request):
     error = False
@@ -18,6 +20,7 @@ def search(request):
             return render(request, 'users/search_results.html', {'users': users, 'query': q})
     return render(request, 'users/search_form.html', {'error': error})
 
+
 def index(request):
     all_users = User.objects.all()
     context = {
@@ -28,10 +31,10 @@ def index(request):
 
 def details(request, user_id):
     try:
-        user = User.objects.get(id=user_id)
+        user_show = User.objects.get(id=user_id)
     except User.DoesNotExist:
         raise Http404("User does not exist")
     context = {
-        'user': user,
+        'user_show': user_show,
     }
     return render(request, 'users/details.html', context)
