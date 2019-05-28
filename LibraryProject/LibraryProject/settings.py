@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'history',
     'publishers',
     'authors',
+    'menu',
     'LibraryProject',
     'django.contrib.admin',
     'django.contrib.auth',
