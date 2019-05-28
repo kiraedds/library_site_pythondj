@@ -179,6 +179,11 @@
 
 
     </script>
+    <script>
+    function openNav() {
+        document.getElementById("dropbtn").style.display = "block";
+    }
+    </script>
 </head>
 <body>
 <img src="{% static 'images/logo.png' %}"><br/>
@@ -243,12 +248,9 @@
 
             <a class="dropbtn">Login & Register</a>
             <div class="dropdown-content">
-                <a href="/accounts/login" onclick="window.open(this.href, 'targetWindow',
-                                            'width=400, height=400'); return false;">Login</a>
-                <a href="/accounts/signup" onclick="window.open(this.href, 'targetWindow',
-                                            'width=400, height=400'); return false;">Register</button></a>
+                <a href="/accounts/login" onclick="openNav()">Login</a>
+                <a href="/accounts/signup" onclick="openNav()">Register</a>
             </div>
-
             {% endif %}
         </li>
     </ul>
