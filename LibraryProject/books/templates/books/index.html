@@ -11,11 +11,28 @@
 
         <h3>List of all books added into the database</h3>
         <table class="table_book_index">
+            <tr>
+                <td><b>Tytuł</b></td>
+                <td><b>Autor</b></td>
+                <td><b>Rok wydania</b></td>
+                <td><b>Liczba wszystkich</b></td>
+                <td><b>Liczba dostępnych</b></td>
+                <td><b>Wypożyczanie</b></td>
+                <td><b>Edycja</b></td>
+                <td><b>Usuwanie</b></td>
+            </tr>
             {% for book in all_books %}
             <tr>
-                <td><a href="/books/{{book.id}}/">{{ book.title }}</a></td>
-                <td>{{ book.author }} </td>
-                <td><button class="reserved" style="vertical-align:middle">Reserve</button></td>
+                <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.year }}</td>
+                <td>{{ book.numberOfAll }}</td>
+                <td>{{ book.numberOfAvailable }}</td>
+                <td><button class="reserved" style="vertical-align:middle">Wypożycz</button></td>
+                <td><button class="reserved" style="vertical-align:middle">
+                    <a href="/books/edit_book/{{ book.id }}">Edytuj</a></button></td>
+                <td><button class="reserved" style="vertical-align:middle">
+                    <a href="/books/delete_book/{{ book.id }}">Usuń</a></button></td>
             </tr>
             {% endfor %}
         </table>
