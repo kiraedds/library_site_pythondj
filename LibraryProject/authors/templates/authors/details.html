@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 
-{% block title %}Authors{% endblock %}
+{% block title %}{{ author }}{% endblock %}
 
 {% block content %}
 
-    {{ author }}
+    Zdjęcie: <img src="{{ author.facePhoto }}" alt="FACE PHOTO" height="200" width="140"></br></br>
+    Imię: {{ author.name }}</br></br>
+    Nazwisko: {{ author.surname }}</br></br>
+    Rok urodzenia: {{ author.birthYear }}</br></br>
 
 {% endblock %}

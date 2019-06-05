@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'publishers',
     'authors',
     'menu',
+    'loans',
     'LibraryProject',
     'django.contrib.admin',
     'django.contrib.auth',
