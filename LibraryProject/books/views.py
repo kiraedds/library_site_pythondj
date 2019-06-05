@@ -57,7 +57,6 @@ def delete_book(request, book_id):
 
 
 def edit_book(request, book_id):
-    print("edit")
     try:
         book = Book.objects.get(id=book_id)
     except Book.DoesNotExist:
@@ -96,13 +95,13 @@ def edit_book(request, book_id):
             book_obj = Book(title=title, ISBN=ISBN, genre=genre, author=author, publisher=publisher,
                             year=year, numberOfAvailable=numberOfAvailable, numberOfAll=numberOfAll)
             book_obj.save()
-            # book.delete()
+            book.delete()
             all_books = Book.objects.all()
             context = {
                 'all_books': all_books,
             }
         return render(request, 'books/index.html', context)
-    return render(request, 'books/edit_book/' + book_id, context)
+    return render(request, 'books/edit_book.html', context)
 
 
 def create_book(request):
@@ -113,6 +112,7 @@ def create_book(request):
         form = BookForm(request.POST)
 
         if form.is_valid():
+
             title = request.POST.get('title', )
             ISBN = request.POST.get('ISBN', )
             genre = request.POST.get('genre', )

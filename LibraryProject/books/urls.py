@@ -8,8 +8,7 @@ urlpatterns = [
     # url(r'^(?P<create_book>[w]+', views.create_book),
     path(r'create_book/', views.create_book),
     path('delete_book/<book_id>', views.delete_book),
-    path('edit_book/<book_id>', views.edit_book),
-    path('edit_book/', views.index),
+    url(r'^edit_book/(?P<book_id>[0-9]+)/$', views.edit_book),
     path(r'search-form/', views.search_form),
     path(r'search/', views.search),
 ]
