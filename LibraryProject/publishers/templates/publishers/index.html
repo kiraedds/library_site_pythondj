@@ -13,7 +13,7 @@
         <table class="table_book_index">
             {% for publisher in all_publishers %}
             <tr>
-                <td><a href="/publisher/{{publisher.id}}/">{{ publisher.name }}</a></td>
+                <td><a href="/publishers/{{publisher.id}}/">{{ publisher.name }}</a></td>
                 <td><button class="reserved" style="vertical-align:middle; width: 150px"><a href="/publisher/{{publisher.id}}/">
                     Show information</a></button></td>
                 <td><button class="reserved" style="vertical-align:middle; width: 100px">List of books</button></td>

@@ -1,6 +1,8 @@
 from django.http import Http404
 from django.shortcuts import render
-from .models import Publisher
+from publishers.models import Publisher
+from publishers.forms import PublisherForm
+
 
 # Create your views here.
 
@@ -23,8 +25,6 @@ def details(request, publisher_id):
     }
     return render(request, 'publishers/details.html', context)
 
-from publishers.models import Publisher
-from publishers.forms import PublisherForm
 
 def create_publisher(request):
     form_publisher = PublisherForm()
@@ -35,9 +35,11 @@ def create_publisher(request):
 
         if form_publisher.is_valid():
             name = request.POST.get('name', )
-            publisher_object = Publisher(name = name)
+            publisher_object = Publisher(name=name)
             publisher_object.save()
-
+            all_publishers = Publisher.objects.all()
+            context = {
+                'all_publishers': all_publishers,
+            }
+        return render(request, 'publishers/index.html', context)
     return render(request, 'publishers/create_publisher.html', context)
-
-

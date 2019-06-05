@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
 
-{% block title %}Authors{% endblock %}
+{% block title %}{{ book }}{% endblock %}
 
 {% block content %}
 
-    <img src="{{ book.cover }}" alt="BOOK COVER" height="200" width="140"></br>
-    {{ book }}</br>
-    <a href="/authors/{{ book.author.id }}">{{ book.author }}</a>
+    Okładka: <img src="{{ book.cover }}" alt="BOOK COVER" height="200" width="140"></br></br>
+    Tytuł: {{ book.title }}</br></br>
+    Autor: <a href="/authors/{{ book.author.id }}">{{ book.author }}</a></br></br>
+    ISBN: {{ book.ISBN }}</br></br>
+    Rok wydania: {{ book.year }}</br></br>
+    Gatunek: {{ book.genre }}</br></br>
+    Wydawca: <a href="/publishers/{{ book.publisher.id }}">{{ book.publisher }}</a></br></br>
+    Liczba dostępnych: {{ book.numberOfAvailable }}</br></br>
+    Liczba wszystkich: {{ book.numberOfAll }}</br></br>
 
 {% endblock %}
