@@ -17,6 +17,7 @@
                 <td><b>Rok wydania</b></td>
                 <td><b>Liczba wszystkich</b></td>
                 <td><b>Liczba dostępnych</b></td>
+                <td><b>Szczegóły</b></td>
                 <td><b>Wypożyczanie</b></td>
                 <td><b>Edycja</b></td>
                 <td><b>Usuwanie</b></td>
@@ -28,6 +29,8 @@
                 <td>{{ book.year }}</td>
                 <td>{{ book.numberOfAll }}</td>
                 <td>{{ book.numberOfAvailable }}</td>
+                <td><button class="reserved" style="vertical-align:middle">
+                    <a href="/books/{{ book.id }}">Szczegóły</a></button></td>
                 <td><button class="reserved" style="vertical-align:middle">Wypożycz</button></td>
                 <td><button class="reserved" style="vertical-align:middle">
                     <a href="/books/edit_book/{{ book.id }}">Edytuj</a></button></td>

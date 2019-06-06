@@ -29,6 +29,5 @@ class BookForm(forms.Form):
     year = forms.IntegerField(label='Year of release', max_value=2050)
     genre = forms.ChoiceField(choices=GENRES)
     publisher = forms.ModelChoiceField(queryset=Publisher.objects.order_by('name'), label='Publisher')
-    cover = forms.URLField(label='URL of books\' cover')
+    cover = forms.CharField(label='URL of books\' cover')
     numberOfAvailable = forms.IntegerField(label='Number of books available', max_value=100)
-    numberOfAll = forms.IntegerField(label='Number of all books', max_value=100)

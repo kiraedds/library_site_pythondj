@@ -34,9 +34,8 @@ class Book(models.Model):
     genre = models.CharField(max_length=20, choices=GENRES, default='Undefined',
                              help_text="Genre of the book")
     publisher = models.ForeignKey(Publisher, on_delete=models.SET_NULL, null=True, help_text="Publisher of the book")
-    cover = models.URLField(max_length=300, help_text="URL of books' cover image", null=True)
+    cover = models.CharField(max_length=300, help_text="URL of books' cover image", null=True)
     numberOfAvailable = models.PositiveSmallIntegerField(help_text="Number of available books")
-    numberOfAll = models.PositiveSmallIntegerField(help_text="Number of all books")
 
     def __str__(self):
         return str(self.title) + ' - ' + str(self.author)

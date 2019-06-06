@@ -71,7 +71,6 @@ def edit_book(request, book_id):
         'publisher': book.publisher,
         'cover': book.cover,
         'numberOfAvailable': book.numberOfAvailable,
-        'numberOfAll': book.numberOfAll,
     })
 
     context = {
@@ -83,6 +82,7 @@ def edit_book(request, book_id):
 
         if form.is_valid():
             title = request.POST.get('title', )
+            cover = request.POST.get('cover', )
             ISBN = request.POST.get('ISBN', )
             genre = request.POST.get('genre', )
             author_id = request.POST.get('author', )
@@ -91,9 +91,8 @@ def edit_book(request, book_id):
             publisher = Publisher.objects.get(id=publisher_id)
             year = request.POST.get('year', )
             numberOfAvailable = request.POST.get('numberOfAvailable', )
-            numberOfAll = request.POST.get('numberOfAll', )
             book_obj = Book(title=title, ISBN=ISBN, genre=genre, author=author, publisher=publisher,
-                            year=year, numberOfAvailable=numberOfAvailable, numberOfAll=numberOfAll)
+                            year=year, numberOfAvailable=numberOfAvailable, cover=cover)
             book_obj.save()
             book.delete()
             all_books = Book.objects.all()
@@ -114,6 +113,7 @@ def create_book(request):
         if form.is_valid():
 
             title = request.POST.get('title', )
+            cover = request.POST.get('cover', )
             ISBN = request.POST.get('ISBN', )
             genre = request.POST.get('genre', )
             author_id = request.POST.get('author', )
@@ -122,9 +122,8 @@ def create_book(request):
             publisher = Publisher.objects.get(id=publisher_id)
             year = request.POST.get('year', )
             numberOfAvailable = request.POST.get('numberOfAvailable', )
-            numberOfAll = request.POST.get('numberOfAll', )
             book_obj = Book(title=title, ISBN=ISBN, genre=genre, author=author, publisher=publisher,
-                            year=year, numberOfAvailable=numberOfAvailable, numberOfAll=numberOfAll)
+                            year=year, numberOfAvailable=numberOfAvailable, cover=cover)
             book_obj.save()
             all_books = Book.objects.all()
             context = {
