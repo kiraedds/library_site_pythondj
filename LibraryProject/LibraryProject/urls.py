@@ -29,6 +29,7 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('authors/', include('authors.urls')),
     path('publishers/', include('publishers.urls')),
+    path('loans/', include('loans.urls')),
     path(r'login/', views.login),
     path(r'register/', views.register),
     path('menu/', include('menu.urls'))

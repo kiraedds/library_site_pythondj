@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Wypożyczenia{% endblock %}
+
+{% block content %}
+
+    {% if all_loans %}
+
+        <h3>List of all loans</h3>
+        <table class="table_book_index">
+            <tr>
+                <td><b>Książka</b></td>
+                <td><b>Wypożyczający</b></td>
+                <td><b>Data wypożyczenia</b></td>
+                <td><b>Data planowanego zwrotu</b></td>
+                <td><b>Szczegóły</b></td>
+            </tr>
+            {% for loan in all_loans %}
+            <tr>
+                <td>{{ loan.book }}</td>
+                <td>{{ loan.user }}</td>
+                <td>{{ loan.dateOfLoan }}</td>
+                <td>{{ loan.dateOfPlannedReturn }}</td>
+                <td><button class="reserved" style="vertical-align:middle">
+                    <a href="/loans/{{ loan.id }}">Szczegóły</a></button></td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <center><h1>Nie masz wypożyczonych książek</h1></center>
+    {% endif %}
+{% endblock %}

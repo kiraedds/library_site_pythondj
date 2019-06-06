@@ -4,6 +4,9 @@ from .models import Book
 from .forms import BookForm
 from authors.models import Author
 from publishers.models import Publisher
+from django.contrib.auth.models import User
+from loans.models import Loan
+import datetime
 
 
 # Create your views here.
@@ -131,3 +134,20 @@ def create_book(request):
             }
             return render(request, 'books/index.html', context)
     return render(request, 'books/create_book.html', context)
+
+
+def reserve_book(request, book_id):
+    user = request.user
+    book = Book.objects.get(id=book_id)
+    num = book.numberOfAvailable - 1
+    book.numberOfAvailable = num
+    book.save()
+    loan = Loan(book=book, user=user, dateOfLoan=datetime.date.today(),
+                dateOfPlannedReturn=datetime.date.today()+datetime.timedelta(days=7))
+    loan.save()
+    all_books = Book.objects.all()
+    context = {
+        'all_books': all_books,
+    }
+    return render(request, 'books/index.html', context)
+

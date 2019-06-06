@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Wypożyczenie{% endblock %}
+
+{% block content %}
+
+    Okładka książki: <img src="{{ loan.book.cover }}" alt="BOOK COVER" height="200" width="140"></br></br>
+    Tytuł: {{ loan.book.title }}</br></br>
+    Autor: <a href="/authors/{{ loan.book.author.id }}">{{ loan.book.author }}</a></br></br>
+    ISBN: {{ loan.book.ISBN }}</br></br>
+    Rok wydania: {{ loan.book.year }}</br></br>
+    Gatunek: {{ loan.book.genre }}</br></br>
+    Wydawca: <a href="/publishers/{{ loan.book.publisher.id }}">{{ loan.book.publisher }}</a></br></br>
+    </br>
+    Data wypożyczenia: {{ loan.dateOfLoan }}</br></br>
+    Data planowanego zwrotu: {{ loan.dateOfPlannedReturn }}</br></br>
+
+{% endblock %}

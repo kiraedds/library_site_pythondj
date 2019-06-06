@@ -1,5 +1,36 @@
 [
 {
+    "model": "books.book",
+    "pk": 1,
+    "fields": {
+        "title": "Dziady",
+        "author": 1,
+        "ISBN": "666",
+        "year": 666,
+        "genre": "FAN",
+        "publisher": 1,
+        "cover": "Nie ma",
+        "numberOfAvailable": 66
+    }
+},
+{
+    "model": "publishers.publisher",
+    "pk": 1,
+    "fields": {
+        "name": "Wydam Adama"
+    }
+},
+{
+    "model": "authors.author",
+    "pk": 1,
+    "fields": {
+        "name": "Adam",
+        "surname": "Mickiewicz",
+        "birthYear": 1798,
+        "facePhoto": "Nope"
+    }
+},
+{
     "model": "contenttypes.contenttype",
     "pk": 1,
     "fields": {
@@ -93,6 +124,14 @@
     "fields": {
         "app_label": "sessions",
         "model": "session"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "tr00s2jcitrkycu0wrkq2ubq7nypdwp9",
+    "fields": {
+        "session_data": "YTA3ZmIyZTY0MGE4ZmNkMTAxNTQ0NzNmZTgwNGJmNTk1NjNiYjk3Mjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI1NTc1NDkxMzZiMTVlYTVkOTkzYjk3NjA2ZjZjN2ExMTg3NGI2YjU0In0=",
+        "expire_date": "2019-06-20T19:20:53.837Z"
     }
 },
 {
@@ -531,8 +570,8 @@
     "model": "auth.user",
     "pk": 1,
     "fields": {
-        "password": "pbkdf2_sha256$150000$PNO844ja0q1L$PNjBKx2e8KBdy2OS2H4+ZZc3FgXHtyMSHgYJ+nkeDvc=",
-        "last_login": null,
+        "password": "pbkdf2_sha256$150000$lufLdb1Ck1HL$gEDeFOC6Y+xrMJ9F2sIJ96Cb9EgN4vf0pqrZj6lyim0=",
+        "last_login": "2019-06-06T19:20:53.400Z",
         "is_superuser": true,
         "username": "admin",
         "first_name": "",
@@ -540,7 +579,7 @@
         "email": "admin@admin.admin",
         "is_staff": true,
         "is_active": true,
-        "date_joined": "2019-06-06T18:46:06.770Z",
+        "date_joined": "2019-06-06T19:20:07.988Z",
         "groups": [],
         "user_permissions": []
     }

@@ -222,6 +222,19 @@
 
         <li class="dropdown" style="float:right">
 
+            {% if user.is_authenticated %}
+
+            <a class="dropbtn">My loans</a>
+            <div class="dropdown-content">
+                <a href="/loans">My loans</a>
+            </div>
+
+            {% endif %}
+
+        </li>
+
+        <li class="dropdown" style="float:right">
+
             {% if user.is_authenticated and user.username == 'admin' %}
 
             <a class="dropbtn">Admin Panel</a>
