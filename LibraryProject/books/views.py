@@ -4,6 +4,9 @@ from .models import Book
 from .forms import BookForm
 from authors.models import Author
 from publishers.models import Publisher
+from django.contrib.auth.models import User
+from loans.models import Loan
+import datetime
 
 
 # Create your views here.
@@ -71,7 +74,6 @@ def edit_book(request, book_id):
         'publisher': book.publisher,
         'cover': book.cover,
         'numberOfAvailable': book.numberOfAvailable,
-        'numberOfAll': book.numberOfAll,
     })
 
     context = {
@@ -83,6 +85,7 @@ def edit_book(request, book_id):
 
         if form.is_valid():
             title = request.POST.get('title', )
+            cover = request.POST.get('cover', )
             ISBN = request.POST.get('ISBN', )
             genre = request.POST.get('genre', )
             author_id = request.POST.get('author', )
@@ -91,9 +94,8 @@ def edit_book(request, book_id):
             publisher = Publisher.objects.get(id=publisher_id)
             year = request.POST.get('year', )
             numberOfAvailable = request.POST.get('numberOfAvailable', )
-            numberOfAll = request.POST.get('numberOfAll', )
             book_obj = Book(title=title, ISBN=ISBN, genre=genre, author=author, publisher=publisher,
-                            year=year, numberOfAvailable=numberOfAvailable, numberOfAll=numberOfAll)
+                            year=year, numberOfAvailable=numberOfAvailable, cover=cover)
             book_obj.save()
             book.delete()
             all_books = Book.objects.all()
@@ -114,6 +116,7 @@ def create_book(request):
         if form.is_valid():
 
             title = request.POST.get('title', )
+            cover = request.POST.get('cover', )
             ISBN = request.POST.get('ISBN', )
             genre = request.POST.get('genre', )
             author_id = request.POST.get('author', )
@@ -122,9 +125,8 @@ def create_book(request):
             publisher = Publisher.objects.get(id=publisher_id)
             year = request.POST.get('year', )
             numberOfAvailable = request.POST.get('numberOfAvailable', )
-            numberOfAll = request.POST.get('numberOfAll', )
             book_obj = Book(title=title, ISBN=ISBN, genre=genre, author=author, publisher=publisher,
-                            year=year, numberOfAvailable=numberOfAvailable, numberOfAll=numberOfAll)
+                            year=year, numberOfAvailable=numberOfAvailable, cover=cover)
             book_obj.save()
             all_books = Book.objects.all()
             context = {
@@ -132,3 +134,20 @@ def create_book(request):
             }
             return render(request, 'books/index.html', context)
     return render(request, 'books/create_book.html', context)
+
+
+def reserve_book(request, book_id):
+    user = request.user
+    book = Book.objects.get(id=book_id)
+    num = book.numberOfAvailable - 1
+    book.numberOfAvailable = num
+    book.save()
+    loan = Loan(book=book, user=user, dateOfLoan=datetime.date.today(),
+                dateOfPlannedReturn=datetime.date.today()+datetime.timedelta(days=7))
+    loan.save()
+    all_books = Book.objects.all()
+    context = {
+        'all_books': all_books,
+    }
+    return render(request, 'books/index.html', context)
+
