@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Wypożyczenie{% endblock %}
+{% block title %}Moje wypożyczenie{% endblock %}
 
 {% block content %}
 
@@ -14,5 +14,12 @@
     </br>
     Data wypożyczenia: {{ loan.dateOfLoan }}</br></br>
     Data planowanego zwrotu: {{ loan.dateOfPlannedReturn }}</br></br>
+    Data faktycznego zwrotu:
+    {% if loan.returned %}
+    {{ loan.dateOfReturn }}</br></br>
+    {% else %}
+    <b>Jeszcze nie zwrócono</b></br></br>
+    {% endif %}
+    Opłata za przetrzymanie: {{ loan.charge }} zł</br></br>
 
 {% endblock %}
