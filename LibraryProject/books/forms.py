@@ -1,4 +1,3 @@
-from django.db import models
 from authors.models import Author
 from publishers.models import Publisher
 from django import forms
@@ -30,4 +29,4 @@ class BookForm(forms.Form):
     genre = forms.ChoiceField(choices=GENRES)
     publisher = forms.ModelChoiceField(queryset=Publisher.objects.order_by('name'), label='Publisher')
     cover = forms.CharField(label='URL of books\' cover')
-    numberOfAvailable = forms.IntegerField(label='Number of books available', max_value=100)
+    numberOfAll = forms.IntegerField(label='Number of all books')

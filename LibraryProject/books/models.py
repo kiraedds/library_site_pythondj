@@ -35,6 +35,8 @@ class Book(models.Model):
                              help_text="Genre of the book")
     publisher = models.ForeignKey(Publisher, on_delete=models.SET_NULL, null=True, help_text="Publisher of the book")
     cover = models.CharField(max_length=300, help_text="URL of books' cover image", null=True)
+    numberOfAll = models.PositiveSmallIntegerField(help_text="Number of all books")
+    numberOfBorrowed = models.PositiveSmallIntegerField(help_text="Number of borrowed books.")
     numberOfAvailable = models.PositiveSmallIntegerField(help_text="Number of available books")
 
     def __str__(self):

@@ -3,6 +3,7 @@
 {% block title %}Authors{% endblock %}
 
 {% block content %}
+
         {% if user.is_authenticated and user.username == 'admin' %}
             <h3><a href="/books/create_book/"><button class="reserved" style="vertical-align:middle">New Book</button></a></h3>
         {% endif %}
@@ -18,9 +19,14 @@
                 <td><b>Liczba dostępnych</b></td>
                 <td><b>Szczegóły</b></td>
                 <td><b>Wypożyczanie</b></td>
+
+                {% if user.is_authenticated and user.username == 'admin' %}
                 <td><b>Edycja</b></td>
                 <td><b>Usuwanie</b></td>
+                {% endif %}
+
             </tr>
+
             {% for book in all_books %}
             <tr>
                 <td>{{ book.title }}</td>
@@ -29,20 +35,30 @@
                 <td>{{ book.numberOfAvailable }}</td>
                 <td><button class="reserved" style="vertical-align:middle">
                     <a href="/books/{{ book.id }}">Szczegóły</a></button></td>
+
                 {% if book.numberOfAvailable %}
                 <td><button class="reserved" style="vertical-align:middle"><a href="/books/reserve_book/{{ book.id }}">Wypożycz</a></button></td>
                 {% else %}
                 <td>NIEDOSTĘPNE</td>
                 {% endif %}
+
+                {% if user.is_authenticated and user.username == 'admin' %}
                 <td><button class="reserved" style="vertical-align:middle">
                     <a href="/books/edit_book/{{ book.id }}">Edytuj</a></button></td>
+                {% endif %}
+
+                {% if user.is_authenticated and user.username == 'admin' and book.numberOfAll == book.numberOfAvailable %}
                 <td><button class="reserved" style="vertical-align:middle">
                     <a href="/books/delete_book/{{ book.id }}">Usuń</a></button></td>
+                {% else %}
+                <td><b>Wypożyczona</b></td>
+                {% endif %}
+
             </tr>
             {% endfor %}
         </table>
     {% else %}
-        <center><h1>No books exist in the database</h1></center>
+        <center><h1>W bazie danych biblioteki nie ma żadnych książek</h1></center>
     {% endif %}
 
 {% endblock %}

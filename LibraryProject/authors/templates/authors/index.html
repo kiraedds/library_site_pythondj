@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Authors{% endblock %}
+{% block title %}Lista autorów{% endblock %}
 
 {% block content %}
 
@@ -9,17 +9,35 @@
 {% endif %}
 
     {% if all_authors %}
-        <h3>List of all authors added into the database</h3>
+
+    <h3 align="center"><b>Lista wszystkich autorów w bazie danych biblioteki</b></h3>
+
         <table class="table_book_index">
-            {% for author in all_authors %}
+
             <tr>
-                <td><a href="/authors/{{author.id}}/">{{ author.name }} {{ author.surname }}</a></td>
-                <td><button class="reserved" style="vertical-align:middle; width: 150px"><a href="/authors/{{author.id}}/">
-                    Show information</a></button></td>
-                <td><button class="reserved" style="vertical-align:middle; width: 100px">List of books</button></td>
+                <td><b>Imię</b></td>
+                <td><b>Nazwisko</b></td>
+                <td><b>Rok urodzenia</b></td>
+                <td><b>Szczegóły</b></td>
+                <td><b>Lista książek</b></td>
             </tr>
+
+            {% for author in all_authors %}
+
+            <tr>
+                <td>{{ author.name }}</td>
+                <td>{{ author.surname }}</td>
+                <td>{{ author.birthYear }}</td>
+                <td><button class="reserved" style="vertical-align:middle; width: 150px">
+                    <a href="/authors/{{ author.id }}/">Więcej informacji</a></button></td>
+                <td><button class="reserved" style="vertical-align:middle; width: 100px">
+                    <a href="/books/authors_books/{{ author.id }}">Książki</a></button></td>
+            </tr>
+
             {% endfor %}
+
         </table>
+
     {% else %}
         <h3>No authors exist in the database</h3>
     {% endif %}

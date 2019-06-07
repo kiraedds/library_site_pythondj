@@ -13,16 +13,46 @@
                 <td><b>Wypożyczający</b></td>
                 <td><b>Data wypożyczenia</b></td>
                 <td><b>Data planowanego zwrotu</b></td>
+                <td><b>Data zwrotu</b></td>
+                <td><b>Opłata</b></td>
+                <td><b>Zapłacone</b></td>
                 <td><b>Szczegóły</b></td>
+                <td><b>Zwróć</b></td>
             </tr>
+
             {% for loan in all_loans %}
             <tr>
+                {% if loan.book == None %}
+                <td><b>USUNIĘTA</b></td>
+                {% else %}
                 <td>{{ loan.book }}</td>
+                {% endif %}
                 <td>{{ loan.user }}</td>
                 <td>{{ loan.dateOfLoan }}</td>
                 <td>{{ loan.dateOfPlannedReturn }}</td>
+                <td>{{ loan.dateOfReturn }}</td>
+
+                {% if loan.charge > 0.0 %}
+                <td>{{ loan.charge }}</td>
+                {% else %}
+                <td>Brak opłat</td>
+                {% endif %}
+
+                {% if loan.paid == False %}
+                <td>N/d</td>
+                {% else %}
+                <td>Tak</td>
+                {% endif %}
+
+
                 <td><button class="reserved" style="vertical-align:middle">
                     <a href="/loans/{{ loan.id }}">Szczegóły</a></button></td>
+                {% if loan.returned == False %}
+                <td><button class="reserved" style="vertical-align:middle">
+                    <a href="/loans/return_book/{{ loan.id }}">Zwróć</a></button></td>
+                {% else %}
+                <td>Już zwrócono</td>
+                {% endif %}
             </tr>
             {% endfor %}
         </table>
