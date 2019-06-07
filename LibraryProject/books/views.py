@@ -35,6 +35,24 @@ def index(request):
     return render(request, 'books/index.html', context)
 
 
+def authors_books(request, author_id):
+    author = Author.objects.get(id=author_id)
+    all_books = Book.objects.all().filter(author=author)
+    context = {
+        'all_books': all_books,
+    }
+    return render(request, 'books/index.html', context)
+
+
+def publishers_books(request, publisher_id):
+    publisher = Publisher.objects.get(id=publisher_id)
+    all_books = Book.objects.all().filter(publisher=publisher)
+    context = {
+        'all_books': all_books,
+    }
+    return render(request, 'books/index.html', context)
+
+
 def details(request, book_id):
     try:
         book = Book.objects.get(id=book_id)
@@ -73,7 +91,7 @@ def edit_book(request, book_id):
         'genre': book.genre,
         'publisher': book.publisher,
         'cover': book.cover,
-        'numberOfAvailable': book.numberOfAvailable,
+        'numberOfAll': book.numberOfAll,
     })
 
     context = {
@@ -84,20 +102,18 @@ def edit_book(request, book_id):
         form = BookForm(request.POST)
 
         if form.is_valid():
-            title = request.POST.get('title', )
-            cover = request.POST.get('cover', )
-            ISBN = request.POST.get('ISBN', )
-            genre = request.POST.get('genre', )
+            book.title = request.POST.get('title', )
+            book.cover = request.POST.get('cover', )
+            book.ISBN = request.POST.get('ISBN', )
+            book.genre = request.POST.get('genre', )
             author_id = request.POST.get('author', )
-            author = Author.objects.get(id=author_id)
+            book.author = Author.objects.get(id=author_id)
             publisher_id = request.POST.get('publisher', )
-            publisher = Publisher.objects.get(id=publisher_id)
-            year = request.POST.get('year', )
-            numberOfAvailable = request.POST.get('numberOfAvailable', )
-            book_obj = Book(title=title, ISBN=ISBN, genre=genre, author=author, publisher=publisher,
-                            year=year, numberOfAvailable=numberOfAvailable, cover=cover)
-            book_obj.save()
-            book.delete()
+            book.publisher = Publisher.objects.get(id=publisher_id)
+            book.year = request.POST.get('year', )
+            book.numberOfAll = request.POST.get('numberOfAll', )
+            book.numberOfAvailable = int(book.numberOfAll) - int(book.numberOfBorrowed)
+            book.save()
             all_books = Book.objects.all()
             context = {
                 'all_books': all_books,
@@ -124,9 +140,12 @@ def create_book(request):
             publisher_id = request.POST.get('publisher', )
             publisher = Publisher.objects.get(id=publisher_id)
             year = request.POST.get('year', )
-            numberOfAvailable = request.POST.get('numberOfAvailable', )
+            numberOfAll = request.POST.get('numberOfAll', )
+            numberOfBorrowed = 0
+            numberOfAvailable = numberOfAll
             book_obj = Book(title=title, ISBN=ISBN, genre=genre, author=author, publisher=publisher,
-                            year=year, numberOfAvailable=numberOfAvailable, cover=cover)
+                            year=year, numberOfAll=numberOfAll, numberOfAvailable=numberOfAvailable,
+                            numberOfBorrowed=numberOfBorrowed, cover=cover)
             book_obj.save()
             all_books = Book.objects.all()
             context = {
@@ -136,11 +155,11 @@ def create_book(request):
     return render(request, 'books/create_book.html', context)
 
 
-def reserve_book(request, book_id):
+def borrow_book(request, book_id):
     user = request.user
     book = Book.objects.get(id=book_id)
-    num = book.numberOfAvailable - 1
-    book.numberOfAvailable = num
+    book.numberOfBorrowed += 1
+    book.numberOfAvailable = book.numberOfAll - book.numberOfBorrowed
     book.save()
     loan = Loan(book=book, user=user, dateOfLoan=datetime.date.today(),
                 dateOfPlannedReturn=datetime.date.today()+datetime.timedelta(days=7))

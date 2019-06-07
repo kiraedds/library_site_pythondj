@@ -1,27 +1,41 @@
 {% extends 'base.html' %}
 
-{% block title %}Authors{% endblock %}
+{% block title %}Lista wydawców{% endblock %}
 
 {% block content %}
 
         {% if user.is_authenticated and user.username == 'admin' %}
-            <h3><a href="/publishers/create_publisher/"><button class="reserved" style="vertical-align:middle">New Publisher</button></a></h3>
+            <h3><a href="/publishers/create_publisher/"><button class="reserved" style="vertical-align:middle">Nowy wydawca</button></a></h3>
         {% endif %}
 
     {% if all_publishers %}
-    <h3>List of all publishers added into the database</h3>
+    <h3 align="center"><b>Lista wszystkich wydawców w bazie danych biblioteki</b></h3>
+
         <table class="table_book_index">
+
+            <tr>
+                <td><b>Nazwa</b></td>
+                <td><b>Szczegóły</b></td>
+                <td><b>Lista książek</b></td>
+            </tr>
+
             {% for publisher in all_publishers %}
+
             <tr>
                 <td><a href="/publishers/{{publisher.id}}/">{{ publisher.name }}</a></td>
-                <td><button class="reserved" style="vertical-align:middle; width: 150px"><a href="/publisher/{{publisher.id}}/">
-                    Show information</a></button></td>
-                <td><button class="reserved" style="vertical-align:middle; width: 100px">List of books</button></td>
+                <td><button class="reserved" style="vertical-align:middle; width: 150px"><a href="/publishers/{{publisher.id}}/">
+                    Więcej informacji</a></button></td>
+                <td><button class="reserved" style="vertical-align:middle; width: 100px"><a href="/books/publishers_books/{{ publisher.id }}">Lista książek</a></button></td>
             </tr>
+
             {% endfor %}
+
         </table>
+
     {% else %}
-    <h3>No publishers exist in the database</h3>
+
+    <h3>W bazie danych biblioteki nie ma żadnych wydawców</h3>
+
     {% endif %}
 
 {% endblock %}
