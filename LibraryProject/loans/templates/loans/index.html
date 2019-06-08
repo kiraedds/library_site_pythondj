@@ -47,11 +47,13 @@
 
                 <td><button class="reserved" style="vertical-align:middle">
                     <a href="/loans/{{ loan.id }}">Szczegóły</a></button></td>
-                {% if loan.returned == False %}
+                {% if loan.returned == False and user.is_authenticated and user.username == loan.user.username %}
                 <td><button class="reserved" style="vertical-align:middle">
                     <a href="/loans/return_book/{{ loan.id }}">Zwróć</a></button></td>
+                {% elif loan.returned == False %}
+                <td>Wypożycznona</td>
                 {% else %}
-                <td>Już zwrócono</td>
+                <td>Już zwrócona</td>
                 {% endif %}
             </tr>
             {% endfor %}

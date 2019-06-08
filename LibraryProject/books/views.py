@@ -53,6 +53,15 @@ def publishers_books(request, publisher_id):
     return render(request, 'books/index.html', context)
 
 
+def loan_history(request, book_id):
+    book = Book.objects.get(id=book_id)
+    all_loans = Loan.objects.all().filter(book=book)
+    context = {
+        'all_loans': all_loans,
+    }
+    return render(request, 'loans/index.html', context)
+
+
 def details(request, book_id):
     try:
         book = Book.objects.get(id=book_id)
