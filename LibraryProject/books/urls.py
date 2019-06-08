@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^reserve_book/(?P<book_id>[0-9]+)/$', views.borrow_book),
     path('authors_books/<author_id>', views.authors_books),
     path('publishers_books/<publisher_id>', views.publishers_books),
+    path('loan_history/<book_id>', views.loan_history),
     path(r'search-form/', views.search_form),
     path(r'search/', views.search),
 ]

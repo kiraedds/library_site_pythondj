@@ -18,7 +18,11 @@
                 <td><b>Rok wydania</b></td>
                 <td><b>Liczba dostępnych</b></td>
                 <td><b>Szczegóły</b></td>
+
+                {% if user.is_authenticated %}
+                <td><b>Historia</b></td>
                 <td><b>Wypożyczanie</b></td>
+                {% endif %}
 
                 {% if user.is_authenticated and user.username == 'admin' %}
                 <td><b>Edycja</b></td>
@@ -36,9 +40,13 @@
                 <td><button class="reserved" style="vertical-align:middle">
                     <a href="/books/{{ book.id }}">Szczegóły</a></button></td>
 
-                {% if book.numberOfAvailable %}
+                {% if book.numberOfAvailable and user.is_authenticated %}
+                <td><button class="reserved" style="vertical-align:middle">
+                    <a href="/books/loan_history/{{ book.id }}">Historia</a></button></td>
                 <td><button class="reserved" style="vertical-align:middle"><a href="/books/reserve_book/{{ book.id }}">Wypożycz</a></button></td>
-                {% else %}
+                {% elif user.is_authenticated %}
+                <td><button class="reserved" style="vertical-align:middle">
+                    <a href="/books/loan_history/{{ book.id }}">Historia</a></button></td>
                 <td>NIEDOSTĘPNE</td>
                 {% endif %}
 
@@ -50,7 +58,7 @@
                 {% if user.is_authenticated and user.username == 'admin' and book.numberOfAll == book.numberOfAvailable %}
                 <td><button class="reserved" style="vertical-align:middle">
                     <a href="/books/delete_book/{{ book.id }}">Usuń</a></button></td>
-                {% else %}
+                {% elif user.is_authenticated and user.username == 'admin' %}
                 <td><b>Wypożyczona</b></td>
                 {% endif %}
 
