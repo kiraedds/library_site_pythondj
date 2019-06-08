@@ -8,6 +8,14 @@ import datetime
 
 
 def index(request):
+    all_loans = Loan.objects.all()
+    context = {
+        'all_loans': all_loans,
+    }
+    return render(request, 'loans/index.html', context)
+
+
+def user_loans(request):
     user = request.user
     all_loans = Loan.objects.all().filter(user=user)
     context = {
