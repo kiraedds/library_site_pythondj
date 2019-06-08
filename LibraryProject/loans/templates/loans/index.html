@@ -44,7 +44,6 @@
                 <td>Tak</td>
                 {% endif %}
 
-
                 <td><button class="reserved" style="vertical-align:middle">
                     <a href="/loans/{{ loan.id }}">Szczegóły</a></button></td>
                 {% if loan.returned == False and user.is_authenticated and user.username == loan.user.username %}

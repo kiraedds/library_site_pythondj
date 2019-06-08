@@ -224,9 +224,12 @@
 
             {% if user.is_authenticated %}
 
-            <a class="dropbtn">My loans</a>
+            <a class="dropbtn">Loans</a>
             <div class="dropdown-content">
-                <a href="/loans">My loans</a>
+                <a href="/loans/user_loans">My loans</a>
+                {% if user.is_authenticated and user.username == 'admin' %}
+                <a href="/loans">All loans</a>
+                {% endif %}
             </div>
 
             {% endif %}
